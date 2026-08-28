@@ -182,14 +182,6 @@
             background: radial-gradient(circle, #f3c669 0%, #b8860b 50%, #4a3000 100%);
             box-shadow: 0 0 35px rgba(243, 198, 105, 0.5), inset 0 0 15px rgba(0,0,0,0.9);
         }
-        .wheel-bulbs-ring {
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 15;
-            border: 2px stroke rgba(255,255,255,0.2);
-        }
         .wheel-pointer-3d {
             position: absolute;
             top: -16px;
@@ -202,6 +194,32 @@
             border-top: 32px solid #f3c669;
             z-index: 40;
             filter: drop-shadow(0 6px 8px rgba(0,0,0,0.9));
+        }
+
+        /* Hero Image Overlay Effects */
+        .hero-banner-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+        .hero-banner-img {
+            width: 100%;
+            height: auto;
+            min-height: 380px;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+        .hero-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(8,10,15,0.2) 0%, rgba(8,10,15,0.85) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
         }
     </style>
 
@@ -246,31 +264,94 @@
     </div>
 
     <!-- MAIN LANDING PAGE CONTENT -->
-    <main id="mainContent" class="max-w-5xl mx-auto px-4 pt-6 pb-28">
+    <main id="mainContent" class="max-w-5xl mx-auto px-4 pt-4 pb-28">
         
-        <!-- Header & Emotional Storytelling -->
-        <header class="text-center mb-8">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card border-roseGold/30 text-roseGold text-xs font-bold mb-4">
-                <i class="fa-solid fa-heart-pulse text-luxuryRed"></i>
-                لكل كوبل يعشق التفاصيل الصادقة والفاخرة
-            </div>
-            
-            <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 font-cairo">
-                مهما كانت المسافة بينكم.. <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-roseGold via-white to-luxuryRed">قلوبكم ديماً متصلة ❤️</span>
-            </h1>
+        <!-- ========================================== -->
+        <!-- 🌟 HERO BANNER SECTION (مكان صورة الهيرو والتاغ) 🌟 -->
+        <!-- ========================================== -->
+        <section class="mb-10">
+            <div class="hero-banner-card">
+                
+                <!-- HERO IMAGE: يمكنك استبدال الرابط أدناه بصورتك النهائية المحدثة -->
+                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1200&auto=format&fit=crop" 
+                     alt="صورة الهيرو الأساسية - قلادة وسلسلة الكوبل المغناطيسية" 
+                     class="hero-banner-img">
 
-            <p class="text-gray-300 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
-                أجمل إحساس كي تكون عندك حاجة تفكرك بشريك حياتك كل ثانية. مشي مجرد قطعة مجوهرات.. هي وعد، أمان، وذكريات حلوة تشاركوها سوا وين ما كنتوا.
-            </p>
-        </header>
+                <!-- OVERLAY CONTENT ON HERO IMAGE -->
+                <div class="hero-banner-overlay">
+                    
+                    <!-- Top Rating & Reviews Badge -->
+                    <div class="flex justify-between items-start">
+                        <div class="glass-card px-3 py-2 rounded-2xl flex items-center gap-2 border border-amber-400/30">
+                            <div class="text-right">
+                                <div class="text-amber-400 font-black text-xs flex items-center gap-1">
+                                    <span>★ 4.9/5</span>
+                                </div>
+                                <span class="text-[10px] text-gray-200 font-bold font-sans">+10,000 زبون راضي</span>
+                            </div>
+                            <!-- Small Avatars -->
+                            <div class="flex -space-x-2 space-x-reverse">
+                                <div class="w-6 h-6 rounded-full bg-roseGold border border-white text-[8px] flex items-center justify-center font-bold text-black">A</div>
+                                <div class="w-6 h-6 rounded-full bg-luxuryRed border border-white text-[8px] flex items-center justify-center font-bold text-white">M</div>
+                                <div class="w-6 h-6 rounded-full bg-purple-500 border border-white text-[8px] flex items-center justify-center font-bold text-white">S</div>
+                            </div>
+                        </div>
 
-        <!-- GALLERY GRID (2 Necklaces + 2 Bracelets) -->
-        <section class="mb-12">
-            <div class="flex items-center justify-between mb-4">
-                <h2 class="text-base font-bold text-white font-cairo">معرض الصور الحقيقية للمنتج 📸</h2>
-                <span class="text-xs text-roseGold font-semibold">تصوير واقعي 100%</span>
+                        <span class="bg-luxuryRed/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-black shadow-lg">
+                            🔥 المنتج الأكثر مبيعاً
+                        </span>
+                    </div>
+
+                    <!-- Bottom Headlines & Emotional Selling Texts -->
+                    <div class="text-right space-y-2 mt-20 md:mt-32">
+                        <h1 class="text-2xl md:text-4xl font-black text-white font-cairo leading-tight drop-shadow-md">
+                            نص قلب عندك.. <br>
+                            <span class="text-luxuryRed">والنص الآخر عندو ❤️</span>
+                        </h1>
+                        
+                        <p class="text-xs md:text-sm text-gray-200 font-semibold leading-relaxed max-w-lg">
+                            كي تقربو لبعضكم... القلبين يتلاقاو ويتحرك الإحساس 🧲
+                        </p>
+
+                        <div class="pt-2">
+                            <span class="inline-flex items-center gap-2 bg-gradient-to-r from-luxuryRed to-roseGold text-white px-4 py-2 rounded-xl text-xs font-black shadow-xl animate-bounce">
+                                <i class="fa-solid fa-heart-circle-bolt"></i>
+                                هدية صغيرة... معنى كبير ❤️
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
+            <!-- 3 KEY ICONS BELOW HERO BANNER -->
+            <div class="grid grid-cols-3 gap-2 mt-4 text-center">
+                <div class="glass-card p-2.5 rounded-2xl border border-white/10">
+                    <div class="text-luxuryRed text-lg mb-1"><i class="fa-solid fa-magnet"></i></div>
+                    <h4 class="text-[11px] font-bold text-white">مغناطيس قوي</h4>
+                    <p class="text-[9px] text-gray-400">يتلاقاو بكل قرب</p>
+                </div>
+
+                <div class="glass-card p-2.5 rounded-2xl border border-white/10">
+                    <div class="text-roseGold text-lg mb-1"><i class="fa-solid fa-heart"></i></div>
+                    <h4 class="text-[11px] font-bold text-white">رمز للحب</h4>
+                    <p class="text-[9px] text-gray-400">والارتباط الأبدي</p>
+                </div>
+
+                <div class="glass-card p-2.5 rounded-2xl border border-white/10">
+                    <div class="text-amber-400 text-lg mb-1"><i class="fa-solid fa-gift"></i></div>
+                    <h4 class="text-[11px] font-bold text-white">هدية مثالية</h4>
+                    <p class="text-[9px] text-gray-400">لكل المناسبات</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISUAL ACTION SECTION ("شوف واش يصرا كي يتلاقاو") -->
+        <section class="mb-12 text-center">
+            <h2 class="text-xl md:text-2xl font-black text-white font-cairo mb-4 flex items-center justify-center gap-2">
+                <span>شوف واش يصرا كي يتلاقاو</span>
+                <span class="text-2xl">😍</span>
+            </h2>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                 <!-- Necklace Image 1 -->
