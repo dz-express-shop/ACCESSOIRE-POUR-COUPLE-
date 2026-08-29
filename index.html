@@ -108,16 +108,15 @@
         /* Live Toast Notification Popup */
         .toast-popup {
             position: fixed;
-            bottom: 80px;
-            left: 50%;
-            transform: translateX(-50%) translateY(160px);
+            top: 20px;
+            right: -400px;
             width: 92%;
             max-width: 380px;
-            z-index: 90;
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 100;
+            transition: right 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .toast-popup.show {
-            transform: translateX(-50%) translateY(0);
+            right: 20px;
         }
 
         /* Offers Grid / Scrollable Container for Mobile */
@@ -206,9 +205,22 @@
     </style>
 
     <!-- TRACKING PIXELS -->
+    <!-- Meta Pixel Code -->
     <script>
-        // META PIXEL CODE HERE
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '880279101448547');
+    fbq('track', 'PageView');
     </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=880279101448547&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+    
     <script>
         // TIKTOK PIXEL CODE HERE
     </script>
@@ -230,19 +242,6 @@
                 <p class="text-[11px] text-luxuryRed font-bold" id="toastProd">اشترت: عرض سنسلة + براسلي (توصيل باطل)</p>
             </div>
         </div>
-    </div>
-
-    <!-- Sticky Mobile Floating CTA Button -->
-    <div class="fixed bottom-0 left-0 right-0 p-3 bg-darkBg/95 backdrop-blur-md border-t border-white/10 z-50 md:hidden flex items-center justify-between gap-3">
-        <div>
-            <span class="text-[10px] text-gray-400 block">عرض الباك الكامل</span>
-            <span class="text-base font-black text-roseGold font-sans">4,500 دج</span>
-            <span class="text-[10px] text-emerald-400 font-bold block"><i class="fa-solid fa-truck-fast"></i> توصيل مجاني</span>
-        </div>
-        <a href="#offersSection" class="btn-luxury-pulse text-white px-5 py-2.5 rounded-xl font-black text-xs flex items-center gap-2">
-            <i class="fa-solid fa-gift"></i>
-            <span>اطلب هديتك الآن</span>
-        </a>
     </div>
 
     <!-- MAIN LANDING PAGE CONTENT -->
@@ -268,15 +267,15 @@
         <!-- GALLERY GRID (2 Necklaces + 2 Bracelets) -->
         <section class="mb-12">
             <div class="flex items-center justify-between mb-4">
-                <h2 class="text-base font-bold text-white font-cairo">معرض الصور للمنتج 📸</h2>
-                <span class="text-xs text-roseGold font-semibold"></span>
+                <h2 class="text-base font-bold text-white font-cairo">معرض الصور الحقيقية للمنتج 📸</h2>
+                <span class="text-xs text-roseGold font-semibold">تصوير واقعي 100%</span>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                 <!-- Necklace Image 1 -->
                 <div class="glass-card p-1.5 rounded-2xl relative group">
                     <img src="NECKLACE 1.jpeg" 
-                         alt=" قلادة " 
+                         alt="قلادة الكوبل 1" 
                          class="w-full h-44 md:h-60 object-cover rounded-xl">
                     <span class="absolute bottom-3 right-3 bg-darkBg/80 backdrop-blur-sm text-[10px] text-white px-2 py-0.5 rounded-md border border-white/10 font-bold">قلادة الكوبل (1)</span>
                 </div>
@@ -284,7 +283,7 @@
                 <!-- Necklace Image 2 -->
                 <div class="glass-card p-1.5 rounded-2xl relative group">
                     <img src="NECKLACE 2.jpg" 
-                         alt=" قلادة " 
+                         alt="قلادة الكوبل 2" 
                          class="w-full h-44 md:h-60 object-cover rounded-xl">
                     <span class="absolute bottom-3 right-3 bg-darkBg/80 backdrop-blur-sm text-[10px] text-white px-2 py-0.5 rounded-md border border-white/10 font-bold">قلادة الكوبل (2)</span>
                 </div>
@@ -292,7 +291,7 @@
                 <!-- Bracelet Image 1 -->
                 <div class="glass-card p-1.5 rounded-2xl relative group">
                     <img src="BR1.jpeg" 
-                         alt="براسلي" 
+                         alt="براسلي الكوبل 1" 
                          class="w-full h-44 md:h-60 object-cover rounded-xl">
                     <span class="absolute bottom-3 right-3 bg-darkBg/80 backdrop-blur-sm text-[10px] text-white px-2 py-0.5 rounded-md border border-white/10 font-bold">براسلي الكوبل (1)</span>
                 </div>
@@ -300,7 +299,7 @@
                 <!-- Bracelet Image 2 -->
                 <div class="glass-card p-1.5 rounded-2xl relative group">
                     <img src="BR2.jpeg" 
-                         alt="براسلي " 
+                         alt="براسلي الكوبل 2" 
                          style="filter: hue-rotate(150deg);"
                          class="w-full h-44 md:h-60 object-cover rounded-xl">
                     <span class="absolute bottom-3 right-3 bg-darkBg/80 backdrop-blur-sm text-[10px] text-white px-2 py-0.5 rounded-md border border-white/10 font-bold">براسلي الكوبل (2)</span>
@@ -347,7 +346,7 @@
 
                         <!-- Mini Image for Necklace -->
                         <div class="w-full h-28 rounded-2xl overflow-hidden mb-3 border border-white/10 relative">
-                            <img src="NECKLACE 2.jpg" class="w-full h-full object-cover">
+                            <img src="NECKLACE 2.jpg" alt="صورة القلادة" class="w-full h-full object-cover">
                             <div class="absolute bottom-1.5 right-1.5 bg-darkBg/80 px-2 py-0.5 rounded text-[9px] text-white font-bold">صورة القلادة</div>
                         </div>
 
@@ -419,12 +418,12 @@
                         <!-- 2 Mini Images with "+" Sign -->
                         <div class="grid grid-cols-5 items-center gap-1 mb-3">
                             <div class="col-span-2 h-24 rounded-xl overflow-hidden border border-white/10 relative">
-                                <img src="NECKLACE 2.jpg">
+                                <img src="NECKLACE 1.jpeg" alt="قلادة" class="w-full h-full object-cover">
                                 <div class="absolute bottom-1 right-1 bg-darkBg/80 text-[8px] text-white px-1 rounded font-bold">قلادة</div>
                             </div>
 
                             <div class="col-span-1 text-center font-black text-roseGold text-2xl animate-pulse">
-                            +
+                                +
                             </div>
 
                             <div class="col-span-2 h-24 rounded-xl overflow-hidden border border-white/10 relative">
@@ -647,7 +646,7 @@
     <script>
         // CONFIGURATION
         const CONFIG = {
-            whatsappNumber: "213555000000", // ضع رقم الواتساب بدون +
+            whatsappNumber: "213542121829", // ضع رقم الواتساب بدون +
             appScriptUrl: "https://script.google.com/macros/s/AKfycb.../exec", // ضع رابط Google AppScript
             offers: {
                 necklace: { name: "عرض القلادة فقط", price: 2500, desk: 500, home: 700 },
@@ -801,7 +800,14 @@
             fd.append('date', new Date().toLocaleString());
 
             // Fire Pixels
-            if (typeof fbq === 'function') fbq('track', 'Lead');
+            const price = CONFIG.offers[selectedOfferKey].price;
+            if (typeof fbq === 'function') {
+                fbq('track', 'Purchase', {
+                    value: price,
+                    currency: 'DZD',
+                    content_name: clientData.product
+                });
+            }
             if (typeof ttq === 'function') ttq.track('SubmitForm');
 
             // Send to Google Sheet
