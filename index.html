@@ -41,13 +41,54 @@
     </script>
 
     <style>
-        * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
-        body {
+        /* FIX HORIZONTAL SCROLL & OVERFLOW ISSUES */
+        html, body {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden !important;
+            position: relative;
+            margin: 0;
+            padding: 0;
             font-family: 'Cairo', sans-serif;
             background-color: #080a0f;
             color: #f1f5f9;
-            overflow-x: hidden;
             scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        /* Ambient background container to prevent overflow drift */
+        .ambient-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .ambient-light-1 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 42, 95, 0.2) 0%, rgba(0,0,0,0) 70%);
+            top: -50px;
+            right: -50px;
+        }
+
+        .ambient-light-2 {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(224, 169, 109, 0.15) 0%, rgba(0,0,0,0) 70%);
+            top: 35%;
+            left: -100px;
         }
 
         /* Glassmorphism Cards */
@@ -60,37 +101,15 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Neon Glow Effects for Cards */
+        /* Neon Glow Effects */
         .glow-card-red {
             border: 2px solid #ff2a5f !important;
             box-shadow: 0 0 25px rgba(255, 42, 95, 0.4), inset 0 0 15px rgba(255, 42, 95, 0.15) !important;
         }
         
         .glow-card-gold {
-            border: 1px solid #e0a96d !important;
-            box-shadow: 0 0 15px rgba(224, 169, 109, 0.2) !important;
-        }
-
-        /* Ambient Background Lights */
-        .ambient-light-1 {
-            position: absolute;
-            width: 320px;
-            height: 320px;
-            background: radial-gradient(circle, rgba(255, 42, 95, 0.22) 0%, rgba(0,0,0,0) 70%);
-            top: -60px;
-            right: -60px;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .ambient-light-2 {
-            position: absolute;
-            width: 380px;
-            height: 380px;
-            background: radial-gradient(circle, rgba(224, 169, 109, 0.18) 0%, rgba(0,0,0,0) 70%);
-            top: 40%;
-            left: -120px;
-            pointer-events: none;
-            z-index: 0;
+            border: 1.5px solid #e0a96d !important;
+            box-shadow: 0 0 15px rgba(224, 169, 109, 0.25) !important;
         }
 
         /* Pulsing Luxury Button */
@@ -105,21 +124,38 @@
             100% { box-shadow: 0 0 0 0 rgba(255, 42, 95, 0); }
         }
 
-        /* Live Toast Notification Popup */
+        /* Live Toast Notification Popup (Fixed Transform to Avoid Page Shift) */
         .toast-popup {
             position: fixed;
-            top: 20px;
-            right: -400px;
+            bottom: 15px;
+            left: 50%;
+            transform: translate(-50%, 160%);
             width: 92%;
-            max-width: 380px;
+            max-width: 360px;
             z-index: 100;
-            transition: right 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+            opacity: 0;
+            pointer-events: none;
         }
         .toast-popup.show {
-            right: 20px;
+            transform: translate(-50%, 0);
+            opacity: 1;
+            pointer-events: auto;
         }
 
-        /* Offers Grid / Scrollable Container for Mobile */
+        @media (min-width: 768px) {
+            .toast-popup {
+                left: auto;
+                right: 20px;
+                bottom: 20px;
+                transform: translateY(160%);
+            }
+            .toast-popup.show {
+                transform: translateY(0);
+            }
+        }
+
+        /* Offers Grid / Scroll Container for Mobile */
         .offers-scroll-container {
             display: flex;
             gap: 12px;
@@ -127,6 +163,7 @@
             scroll-snap-type: x mandatory;
             padding-bottom: 12px;
             -webkit-overflow-scrolling: touch;
+            width: 100%;
         }
         .offers-scroll-container::-webkit-scrollbar {
             height: 4px;
@@ -173,26 +210,26 @@
         /* SPIN WHEEL STYLING */
         .wheel-outer-casing {
             position: relative;
-            width: 310px;
-            height: 310px;
+            width: 290px;
+            height: 290px;
             margin: 0 auto;
             border-radius: 50%;
-            padding: 10px;
+            padding: 8px;
             background: radial-gradient(circle, #f3c669 0%, #b8860b 50%, #4a3000 100%);
-            box-shadow: 0 0 35px rgba(243, 198, 105, 0.5), inset 0 0 15px rgba(0,0,0,0.9);
+            box-shadow: 0 0 30px rgba(243, 198, 105, 0.4), inset 0 0 15px rgba(0,0,0,0.9);
         }
         .wheel-pointer-3d {
             position: absolute;
-            top: -16px;
+            top: -14px;
             left: 50%;
             transform: translateX(-50%);
             width: 0;
             height: 0;
-            border-left: 18px solid transparent;
-            border-right: 18px solid transparent;
-            border-top: 32px solid #f3c669;
+            border-left: 16px solid transparent;
+            border-right: 16px solid transparent;
+            border-top: 28px solid #f3c669;
             z-index: 40;
-            filter: drop-shadow(0 6px 8px rgba(0,0,0,0.9));
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.8));
         }
     </style>
 
@@ -213,8 +250,11 @@
 </head>
 <body class="relative">
 
-    <div class="ambient-light-1"></div>
-    <div class="ambient-light-2"></div>
+    <!-- Ambient Ambient Glow Wrapper -->
+    <div class="ambient-wrapper">
+        <div class="ambient-light-1"></div>
+        <div class="ambient-light-2"></div>
+    </div>
 
     <!-- Live Social Proof Toast -->
     <div id="toastNotif" class="toast-popup">
@@ -223,18 +263,18 @@
                 <i class="fa-solid fa-heart text-luxuryRed"></i>
             </div>
             <div>
-                <p class="text-[11px] text-gray-400 font-semibold" id="toastTime">قبل 2 دقائق</p>
+                <p class="text-[10px] text-gray-400 font-semibold" id="toastTime">قبل دقيقتين</p>
                 <p class="text-xs font-bold text-white" id="toastUser">إيمان من الجزائر العاصمة</p>
-                <p class="text-[11px] text-luxuryRed font-bold" id="toastProd">اشترت: عرض سنسلة + براسلي (توصيل باطل)</p>
+                <p class="text-[11px] text-luxuryRed font-bold" id="toastProd">اشترت: عرض سنسلة + براسلي (توصيل مجاني)</p>
             </div>
         </div>
     </div>
 
-    <main id="mainContent" class="max-w-5xl mx-auto px-4 pt-6 pb-28">
+    <main id="mainContent" class="max-w-5xl mx-auto px-4 pt-6 pb-28 relative z-10">
         
         <!-- Header & Storytelling -->
         <header class="text-center mb-8">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card border-roseGold/30 text-roseGold text-xs font-bold mb-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-card border-roseGold/30 text-roseGold text-xs font-bold mb-4">
                 <i class="fa-solid fa-heart-pulse text-luxuryRed"></i>
                 لكل كوبل يعشق التفاصيل الصادقة والفاخرة
             </div>
@@ -325,7 +365,7 @@
                             <p class="flex justify-between"><span>توصيل للبيت:</span> <span class="text-white font-bold">700 دج</span></p>
                         </div>
 
-                        <button class="w-full py-2.5 rounded-xl border border-white/20 text-xs font-bold text-white hover:bg-white/10 transition">اختيار هذا العرض</button>
+                        <button type="button" class="w-full py-2.5 rounded-xl border border-white/20 text-xs font-bold text-white hover:bg-white/10 transition">اختيار هذا العرض</button>
                     </div>
                 </div>
 
@@ -357,11 +397,11 @@
                             <p class="flex justify-between"><span>توصيل للبيت:</span> <span class="text-white font-bold">700 دج</span></p>
                         </div>
 
-                        <button class="w-full py-2.5 rounded-xl border border-white/20 text-xs font-bold text-white hover:bg-white/10 transition">اختيار هذا العرض</button>
+                        <button type="button" class="w-full py-2.5 rounded-xl border border-white/20 text-xs font-bold text-white hover:bg-white/10 transition">اختيار هذا العرض</button>
                     </div>
                 </div>
 
-                <!-- CARD 3: BUNDLE -->
+                <!-- CARD 3: BUNDLE (DEFAULT SELECTED) -->
                 <div id="card-bundle" onclick="selectOffer('bundle')" class="offer-card-item glass-card glow-card-red p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between relative bg-gradient-to-b from-luxuryRed/25 via-cardBg to-cardBg">
                     <div class="absolute -top-3.5 right-1/2 translate-x-1/2 bg-gradient-to-r from-luxuryRed to-roseGold text-white px-3 py-1 rounded-full text-[10px] font-black shadow-lg whitespace-nowrap flex items-center gap-1">
                         <i class="fa-solid fa-crown text-amber-300"></i>
@@ -404,7 +444,7 @@
                     </div>
 
                     <div>
-                        <button class="w-full py-3 rounded-xl btn-luxury-pulse text-white text-xs font-black shadow-lg">اختيار العرض الخيالي</button>
+                        <button type="button" class="w-full py-3 rounded-xl btn-luxury-pulse text-white text-xs font-black shadow-lg">اختيار العرض الخيالي</button>
                     </div>
                 </div>
 
@@ -424,7 +464,7 @@
                     
                     <div class="bg-white/5 p-3.5 rounded-2xl border border-white/10 flex justify-between items-center text-xs">
                         <span class="text-gray-400">العرض المحدد حالياً:</span>
-                        <span id="displaySelectedOffer" class="font-bold text-roseGold font-cairo">عرض قلادة + براسلي (4500 دج)</span>
+                        <span id="displaySelectedOffer" class="font-bold text-roseGold font-cairo">عرض قلادة + براسلي (4,500 دج - توصيل باطل)</span>
                     </div>
 
                     <div>
@@ -441,7 +481,6 @@
                     <div>
                         <label class="block text-xs font-bold text-gray-300 mb-1.5">رقم هاتف ثانٍ (اختياري)</label>
                         <input type="tel" id="phone2" placeholder="05 / 06 / 07 XX XX XX" dir="ltr" class="w-full px-4 py-3 rounded-xl bg-darkBg/80 border border-white/10 text-white text-xs text-right focus:border-roseGold outline-none transition">
-                        <p id="phone2Error" class="text-[11px] text-luxuryRed font-bold mt-1 hidden-section">⚠️ رقم الهاتف الثاني غير صحيح</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -490,7 +529,7 @@
 
                     <div class="p-3.5 rounded-2xl bg-luxuryRed/10 border border-luxuryRed/30">
                         <label class="flex items-start gap-2.5 cursor-pointer">
-                            <input type="checkbox" id="oathCheckbox" required class="mt-0.5 accent-luxuryRed w-4 h-4">
+                            <input type="checkbox" id="oathCheckbox" required class="mt-0.5 accent-luxuryRed w-4 h-4 shrink-0">
                             <div class="text-[11px] text-gray-300 leading-relaxed">
                                 <p class="font-bold text-white mb-0.5">أقسم بالله العظيم أنني جاد في طلبي وسأستلم الطرد ✋</p>
                             </div>
@@ -521,10 +560,10 @@
 
                 <div class="wheel-outer-casing mb-6">
                     <div class="wheel-pointer-3d"></div>
-                    <canvas id="wheelCanvas" width="290" height="290" class="w-full h-full rounded-full shadow-2xl"></canvas>
+                    <canvas id="wheelCanvas" width="270" height="270" class="w-full h-full rounded-full shadow-2xl"></canvas>
                 </div>
 
-                <button id="spinBtn" class="w-full py-3.5 rounded-xl btn-luxury-pulse text-white font-black text-base shadow-xl flex items-center justify-center gap-2">
+                <button id="spinBtn" onclick="startSpinWheel()" class="w-full py-3.5 rounded-xl btn-luxury-pulse text-white font-black text-base shadow-xl flex items-center justify-center gap-2">
                     <i class="fa-solid fa-play"></i>
                     <span>تدوير العجلة الآن</span>
                 </button>
@@ -543,7 +582,7 @@
                     اضغط على الزر أدناه للتحويل المباشر إلى **الواتساب** لتأكيد الشحن اليوم:
                 </p>
 
-                <a href="#" id="whatsappBtn" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-base shadow-xl flex items-center justify-center gap-2 transition">
+                <a href="#" id="whatsappBtn" target="_blank" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-base shadow-xl flex items-center justify-center gap-2 transition">
                     <i class="fa-brands fa-whatsapp text-2xl"></i>
                     تأكيد الطلب والهدية عبر الواتساب
                 </a>
@@ -552,6 +591,7 @@
         </div>
     </div>
 
+    <!-- MAIN JAVASCRIPT LOGIC -->
     <script>
         // CONFIGURATION
         const CONFIG = {
@@ -561,220 +601,327 @@
             appScriptUrl: "https://script.google.com/macros/s/AKfycbwpTKuw4fiIpxZqDU6i981yKSH7JHOCKxLp19OUS1cRXZyevvWiGeEnC78ACBUfHk8/exec", 
             
             offers: {
-                necklace: { name: "عرض القلادة فقط", price: 2500, desk: 500, home: 700 },
-                bracelet: { name: "عرض البراسلي فقط", price: 2500, desk: 500, home: 700 },
-                bundle: { name: "عرض قلادة + براسلي (الباك الكامل)", price: 4500, desk: 0, home: 0 }
+                necklace: { name: "عرض القلادة (2500 دج)", price: 2500, deskDelivery: 500, homeDelivery: 700, freeDelivery: false },
+                bracelet: { name: "عرض البراسلي (2500 دج)", price: 2500, deskDelivery: 500, homeDelivery: 700, freeDelivery: false },
+                bundle:   { name: "عرض قلادة + براسلي (4500 دج - توصيل باطل)", price: 4500, deskDelivery: 0, homeDelivery: 0, freeDelivery: true }
             }
         };
 
-        let selectedOfferKey = "bundle";
-
-        // 1. Populate Algerian 58 Wilayas
-        const wilayas = [
-            "أدرار", "الشلف", "الأغواط", "أم البواقي", "باتنة", "بجاية", "بسكرة", "بشار", "البليدة", "البويرة",
-            "تمنراست", "تبسة", "تلمسان", "تيارت", "تيزي وزو", "الجزائر", "الجلفة", "جيجل", "سطيف", "سعيدة",
-            "سكيكدة", "سيدي بلعباس", "عنابة", "قالمة", "قسنطينة", "المدية", "مستغانم", "المسيلة", "معسكر", "ورقلة",
-            "وهران", "البيض", "إليزي", "برج بوعريريج", "بومرداس", "الطارف", "تندوف", "تيسمسيلت", "الوادي", "خنشلة",
-            "سوق أهراس", "تيبازة", "ميلة", "عين الدفلى", "النعامة", "عين تموشنت", "غرداية", "غليزان", "تيميمون", "برج باجي مختار",
-            "أولاد جلال", "بني عباس", "إن صالح", "إن قزام", "تقرت", "جانت", "المغير", "المنيعة"
+        // ALGERIAN WILAYAS (58)
+        const WILAYAS = [
+            "01 - أدرار", "02 - الشلف", "03 - الأغواط", "04 - أم البواقي", "05 - باتنة", 
+            "06 - بجاية", "07 - بسكرة", "08 - بشار", "09 - البليدة", "10 - البويرة", 
+            "11 - تمنراست", "12 - تبسة", "13 - تلمسان", "14 - تيارت", "15 - تيزي وزو", 
+            "16 - الجزائر", "17 - الجلفة", "18 - جيجل", "19 - سطيف", "20 - سعيدة", 
+            "21 - سكيكدة", "22 - سيدي بلعباس", "23 - عنابة", "24 - قالمة", "25 - قسنطينة", 
+            "26 - المدية", "27 - مستغانم", "28 - المسيلة", "29 - معسكر", "30 - ورقلة", 
+            "31 - وهران", "32 - البيض", "33 - إليزي", "34 - برج بوعريريج", "35 - بومرداس", 
+            "36 - الطارف", "37 - تندوف", "38 - تسمسيلت", "39 - الوادي", "40 - خنشلة", 
+            "41 - سوق أهراس", "42 - تيبازة", "43 - ميلة", "44 - عين الدفلى", "45 - النعامة", 
+            "46 - عين تموشنت", "47 - غرداية", "48 - غليزان", "49 - تيميمون", "50 - برج باجي مختار", 
+            "51 - أولاد جلال", "52 - بني عباس", "53 - إن صالح", "54 - إن قزام", "55 - تقرت", 
+            "56 - جانت", "57 - المغير", "58 - المنيعة"
         ];
 
-        const wilayaSelect = document.getElementById('wilaya');
-        wilayas.forEach((w, idx) => {
-            const opt = document.createElement('option');
-            opt.value = (idx + 1);
-            opt.textContent = `${idx + 1} - ${w}`;
-            wilayaSelect.appendChild(opt);
+        let selectedOffer = 'bundle';
+        let currentTotal = 4500;
+        let lastOrderData = {};
+
+        // INITIALIZE ON DOM READY
+        document.addEventListener("DOMContentLoaded", function () {
+            populateWilayas();
+            selectOffer('bundle');
+            initWheelCanvas();
+            startSocialProofTimer();
         });
 
-        // 2. Offer Selection & Calculations
-        function selectOffer(key) {
-            selectedOfferKey = key;
-            ['necklace', 'bracelet', 'bundle'].forEach(k => {
-                const card = document.getElementById(`card-${k}`);
-                if (k === key) {
-                    card.classList.add('glow-card-red');
-                    card.classList.remove('glow-card-gold');
-                } else {
-                    card.classList.remove('glow-card-red');
-                    card.classList.add('glow-card-gold');
+        // POPULATE WILAYA SELECT
+        function populateWilayas() {
+            const select = document.getElementById("wilaya");
+            WILAYAS.forEach(w => {
+                const opt = document.createElement("option");
+                opt.value = w;
+                opt.textContent = w;
+                select.appendChild(opt);
+            });
+        }
+
+        // SELECT OFFER LOGIC
+        function selectOffer(offerKey) {
+            selectedOffer = offerKey;
+            
+            // Remove active classes
+            ['necklace', 'bracelet', 'bundle'].forEach(key => {
+                const card = document.getElementById(`card-${key}`);
+                if (card) {
+                    card.classList.remove('glow-card-red', 'glow-card-gold');
+                    if (key === 'bundle') {
+                        card.classList.add('glow-card-gold');
+                    }
                 }
             });
 
-            document.getElementById('displaySelectedOffer').textContent = CONFIG.offers[key].name;
-            calculateTotal();
-            document.getElementById('checkoutSection').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function calculateTotal() {
-            const offer = CONFIG.offers[selectedOfferKey];
-            const deliveryType = document.querySelector('input[name="deliveryType"]:checked').value;
-            
-            const deskCost = offer.desk;
-            const homeCost = offer.home;
-
-            document.getElementById('deskPriceText').textContent = deskCost === 0 ? "مجاناً" : `${deskCost} دج`;
-            document.getElementById('homePriceText').textContent = homeCost === 0 ? "مجاناً" : `${homeCost} دج`;
-
-            const finalDelivery = deliveryType === 'desk' ? deskCost : homeCost;
-            const finalTotal = offer.price + finalDelivery;
-
-            document.getElementById('finalTotalText').textContent = `${finalTotal.toLocaleString()} دج`;
-        }
-
-        calculateTotal();
-
-        // 3. Phone Validation
-        function isValidDZPhone(phone) {
-            const clean = phone.replace(/\s+/g, '');
-            const dzRegex = /^(05|06|07)[0-9]{8}$/;
-            return dzRegex.test(clean);
-        }
-
-        // 4. Form Submit
-        let clientData = {};
-
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const p1 = document.getElementById('phone1').value;
-            const p2 = document.getElementById('phone2').value;
-            const p1Err = document.getElementById('phone1Error');
-            const p2Err = document.getElementById('phone2Error');
-
-            let isValid = true;
-            if (!isValidDZPhone(p1)) { p1Err.classList.remove('hidden-section'); isValid = false; } else { p1Err.classList.add('hidden-section'); }
-            if (p2.trim() !== "" && !isValidDZPhone(p2)) { p2Err.classList.remove('hidden-section'); isValid = false; } else { p2Err.classList.add('hidden-section'); }
-
-            if (!isValid) return;
-
-            const btn = document.getElementById('submitBtn');
-            btn.innerHTML = '<span class="spin-loader"></span> جاري تأكيد الطلب...';
-            btn.disabled = true;
-
-            const wilayaText = wilayaSelect.options[wilayaSelect.selectedIndex].text;
-            const deliveryType = document.querySelector('input[name="deliveryType"]:checked').value === 'desk' ? 'StopDesk' : 'À domicile';
-            const totalVal = document.getElementById('finalTotalText').textContent;
-
-            clientData = {
-                name: document.getElementById('fullName').value,
-                phone1: p1,
-                phone2: p2 || '-',
-                wilaya: wilayaText,
-                commune: document.getElementById('commune').value,
-                delivery: deliveryType,
-                product: CONFIG.offers[selectedOfferKey].name,
-                total: totalVal,
-                notes: document.getElementById('notes').value || '-',
-                source: 'jewelry'
-            };
-
-            const fd = new FormData();
-            Object.keys(clientData).forEach(k => fd.append(k, clientData[k]));
-            fd.append('date', new Date().toLocaleString());
-
-            if (typeof fbq === 'function') {
-                fbq('track', 'Purchase', {
-                    value: CONFIG.offers[selectedOfferKey].price,
-                    currency: 'DZD',
-                    content_name: clientData.product
-                });
+            // Set active glow
+            const activeCard = document.getElementById(`card-${offerKey}`);
+            if (activeCard) {
+                if (offerKey === 'bundle') {
+                    activeCard.classList.remove('glow-card-gold');
+                    activeCard.classList.add('glow-card-red');
+                } else {
+                    activeCard.classList.add('glow-card-gold');
+                }
             }
 
-            // إرسال البيانات لـ Google Sheet
-            fetch(CONFIG.appScriptUrl, { method: 'POST', mode: 'no-cors', body: fd })
-            .then(() => showThankYou())
-            .catch(() => showThankYou());
+            // Update Header Display Text
+            const displayEl = document.getElementById("displaySelectedOffer");
+            if (displayEl) {
+                displayEl.textContent = CONFIG.offers[offerKey].name;
+            }
+
+            calculateTotal();
+        }
+
+        // CALCULATE TOTAL & DELIVERY
+        function calculateTotal() {
+            const offer = CONFIG.offers[selectedOffer];
+            const deliveryType = document.querySelector('input[name="deliveryType"]:checked').value;
+            
+            let deliveryFee = 0;
+            const deskPriceText = document.getElementById("deskPriceText");
+            const homePriceText = document.getElementById("homePriceText");
+
+            if (offer.freeDelivery) {
+                deliveryFee = 0;
+                deskPriceText.textContent = "مجاناً";
+                homePriceText.textContent = "مجاناً";
+            } else {
+                deskPriceText.textContent = "+ 500 دج";
+                homePriceText.textContent = "+ 700 دج";
+                deliveryFee = (deliveryType === 'desk') ? offer.deskDelivery : offer.homeDelivery;
+            }
+
+            currentTotal = offer.price + deliveryFee;
+            document.getElementById("finalTotalText").textContent = currentTotal.toLocaleString() + " دج";
+        }
+
+        // PHONE VALIDATION
+        function validatePhone(phone) {
+            const cleanPhone = phone.replace(/\s+/g, '').trim();
+            return /^(05|06|07)[0-9]{8}$/.test(cleanPhone);
+        }
+
+        // FORM SUBMIT HANDLER
+        document.getElementById("orderForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const fullName = document.getElementById("fullName").value.trim();
+            const phone1 = document.getElementById("phone1").value.trim();
+            const phone2 = document.getElementById("phone2").value.trim();
+            const wilaya = document.getElementById("wilaya").value;
+            const commune = document.getElementById("commune").value.trim();
+            const deliveryType = document.querySelector('input[name="deliveryType"]:checked').value;
+            const notes = document.getElementById("notes").value.trim();
+
+            const phoneErr = document.getElementById("phone1Error");
+
+            if (!validatePhone(phone1)) {
+                phoneErr.classList.remove("hidden-section");
+                document.getElementById("phone1").focus();
+                return;
+            } else {
+                phoneErr.classList.add("hidden-section");
+            }
+
+            // Show Loading State
+            const submitBtn = document.getElementById("submitBtn");
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<span class="spin-loader"></span> <span>جاري تسجيل الطلب...</span>`;
+
+            // Prepare Payload
+            lastOrderData = {
+                fullName: fullName,
+                phone1: phone1,
+                phone2: phone2,
+                wilaya: wilaya,
+                commune: commune,
+                deliveryType: deliveryType === 'desk' ? 'المكتب (StopDesk)' : 'باب المنزل',
+                selectedOffer: CONFIG.offers[selectedOffer].name,
+                totalPrice: currentTotal + " دج",
+                notes: notes,
+                date: new Date().toLocaleString('ar-DZ')
+            };
+
+            // Send Data to Google Apps Script
+            fetch(CONFIG.appScriptUrl, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(lastOrderData)
+            }).then(() => {
+                console.log("Order Sent Successfully");
+            }).catch(err => {
+                console.error("Error sending order:", err);
+            }).finally(() => {
+                // Track Purchase Pixel
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Purchase', {
+                        value: currentTotal,
+                        currency: 'DZD'
+                    });
+                }
+
+                // Hide Main Content & Show Thank You Page
+                document.getElementById("mainContent").classList.add("hidden-section");
+                document.getElementById("thankYouPage").classList.remove("hidden-section");
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
         });
 
-        function showThankYou() {
-            document.getElementById('mainContent').classList.add('hidden-section');
-            document.getElementById('thankYouPage').classList.remove('hidden-section');
-            window.scrollTo(0, 0);
-            drawWheel();
-        }
-
-        // Spin Wheel JS
-        const canvas = document.getElementById('wheelCanvas');
-        const ctx = canvas ? canvas.getContext('2d') : null;
-        const wheelSlices = [
-            { label: "خصم 100%", color: "#0c0f18", textColor: "#ffffff" },
-            { label: "علبة هدايا 🎁", color: "#ff2a5f", textColor: "#ffffff" },
-            { label: "خصم 50%", color: "#0c0f18", textColor: "#ffffff" },
-            { label: "10,000 دج", color: "#e0a96d", textColor: "#000000" },
-            { label: "عطر مجاني", color: "#0c0f18", textColor: "#ffffff" },
-            { label: "خصم 20%", color: "#ff2a5f", textColor: "#ffffff" }
+        /* -------------------------------------------------------------
+           SPIN WHEEL LOGIC
+        ------------------------------------------------------------- */
+        const slices = [
+            "علبة هدايا فاخرة 🎁",
+            "خصم 200 دج 💰",
+            "توصيل مجاني ⚡",
+            "سوار إضافي ✨",
+            "عطر مصغر 🌹",
+            "علبة هدايا فاخرة 🎁"
         ];
-
-        let currentAngle = 0;
-
-        function drawWheel() {
-            if (!ctx) return;
-            const sliceAngle = (2 * Math.PI) / wheelSlices.length;
-            const centerX = canvas.width / 2;
-            const centerY = canvas.height / 2;
-            const radius = centerX - 10;
-
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            wheelSlices.forEach((slice, i) => {
-                const angle = currentAngle + i * sliceAngle;
-                ctx.beginPath();
-                ctx.moveTo(centerX, centerY);
-                ctx.arc(centerX, centerY, radius, angle, angle + sliceAngle);
-                ctx.closePath();
-                ctx.fillStyle = slice.color;
-                ctx.fill();
-                ctx.strokeStyle = '#e0a96d';
-                ctx.stroke();
-
-                ctx.save();
-                ctx.translate(centerX, centerY);
-                ctx.rotate(angle + sliceAngle / 2);
-                ctx.textAlign = "right";
-                ctx.fillStyle = slice.textColor;
-                ctx.font = "bold 13px 'Cairo', sans-serif";
-                ctx.fillText(slice.label, radius - 22, 5);
-                ctx.restore();
-            });
-
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, 28, 0, 2 * Math.PI);
-            ctx.fillStyle = '#e0a96d';
-            ctx.fill();
-        }
-
-        const spinBtn = document.getElementById('spinBtn');
+        const sliceColors = ["#ff2a5f", "#111522", "#e0a96d", "#111522", "#ff2a5f", "#111522"];
         let isSpinning = false;
 
-        spinBtn.addEventListener('click', () => {
+        function initWheelCanvas() {
+            const canvas = document.getElementById("wheelCanvas");
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+            const width = canvas.width;
+            const center = width / 2;
+            const radius = center - 5;
+            const anglePerSlice = (2 * Math.PI) / slices.length;
+
+            ctx.clearRect(0, 0, width, width);
+
+            for (let i = 0; i < slices.length; i++) {
+                const startAngle = i * anglePerSlice;
+                const endAngle = startAngle + anglePerSlice;
+
+                ctx.beginPath();
+                ctx.moveTo(center, center);
+                ctx.arc(center, center, radius, startAngle, endAngle);
+                ctx.closePath();
+                ctx.fillStyle = sliceColors[i];
+                ctx.fill();
+                ctx.strokeStyle = "rgba(224, 169, 109, 0.4)";
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // Draw Text
+                ctx.save();
+                ctx.translate(center, center);
+                ctx.rotate(startAngle + anglePerSlice / 2);
+                ctx.textAlign = "right";
+                ctx.fillStyle = "#ffffff";
+                ctx.font = "bold 12px Cairo";
+                ctx.fillText(slices[i], radius - 20, 4);
+                ctx.restore();
+            }
+        }
+
+        function startSpinWheel() {
             if (isSpinning) return;
             isSpinning = true;
 
-            const targetIndex = 1;
-            const sliceAngle = (2 * Math.PI) / wheelSlices.length;
-            const targetRotation = (Math.PI * 2 * 7) + (1.5 * Math.PI - (targetIndex * sliceAngle + sliceAngle / 2));
-            const startTime = performance.now();
+            const btn = document.getElementById("spinBtn");
+            btn.disabled = true;
+            btn.innerHTML = `<span class="spin-loader"></span> <span>جاري التدوير...</span>`;
 
-            function animateWheel(now) {
-                const progress = Math.min((now - startTime) / 5000, 1);
-                currentAngle = (1 - Math.pow(1 - progress, 4)) * targetRotation;
-                drawWheel();
+            const canvas = document.getElementById("wheelCanvas");
+            let rotation = 0;
+            const targetRotation = 360 * 5 + 30; // Force stop on Luxury Gift Box slice
+            const startTime = performance.now();
+            const duration = 4000;
+
+            function animateWheel(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Ease Out Cubic Formula
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                rotation = easeOut * targetRotation;
+
+                canvas.style.transform = `rotate(${rotation}deg)`;
 
                 if (progress < 1) {
                     requestAnimationFrame(animateWheel);
                 } else {
-                    if (typeof confetti === 'function') confetti({ particleCount: 100, spread: 80, origin: { y: 0.6 } });
+                    isSpinning = false;
+                    // Trigger Confetti
+                    if (typeof confetti === 'function') {
+                        confetti({
+                            particleCount: 120,
+                            spread: 80,
+                            origin: { y: 0.6 }
+                        });
+                    }
+
+                    // Show Results
                     setTimeout(() => {
-                        document.getElementById('wheelSection').classList.add('hidden-section');
-                        document.getElementById('resultSection').classList.remove('hidden-section');
-                        const waMsg = `سلام عليكم، أنا ${clientData.name}.\nطلب العرض: ${clientData.product}\nالمجموع: ${clientData.total}\n🎉 وربحت معاكم: علبة هدايا فاخرة مجانية!`;
-                        document.getElementById('whatsappBtn').href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(waMsg)}`;
+                        document.getElementById("wheelSection").classList.add("hidden-section");
+                        document.getElementById("resultSection").classList.remove("hidden-section");
+                        setupWhatsAppButton();
                     }, 800);
                 }
             }
+
             requestAnimationFrame(animateWheel);
-        });
+        }
+
+        function setupWhatsAppButton() {
+            const message = `مرحباً! قمت بطلب جديد من الموقع 🎁:\n\n` +
+                `👤 *الاسم:* ${lastOrderData.fullName}\n` +
+                `📞 *الهاتف:* ${lastOrderData.phone1}\n` +
+                `📍 *الولاية:* ${lastOrderData.wilaya} (${lastOrderData.commune})\n` +
+                `📦 *العرض:* ${lastOrderData.selectedOffer}\n` +
+                `🚚 *الاستلام:* ${lastOrderData.deliveryType}\n` +
+                `💰 *المجموع:* ${lastOrderData.totalPrice}\n` +
+                `🎁 *الهدية المكسوبة:* علبة هدايا فاخرة مجانية ✨`;
+
+            const encodedMsg = encodeURIComponent(message);
+            const waUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedMsg}`;
+            document.getElementById("whatsappBtn").href = waUrl;
+        }
+
+        /* -------------------------------------------------------------
+           LIVE SOCIAL PROOF TOAST TIMER
+        ------------------------------------------------------------- */
+        const fakeToastData = [
+            { name: "إيمان من الجزائر العاصمة", offer: "عرض سنسلة + براسلي (توصيل مجاني)", time: "قبل دقيقتين" },
+            { name: "ياسين من وهران", offer: "عرض القلادة المغناطيسية", time: "قبل 5 دقائق" },
+            { name: "سارة من قسنطينة", offer: "عرض قلادة + براسلي (الباك الكامل)", time: "قبل دقيقة واحدة" },
+            { name: "أحمد من باتنة", offer: "عرض البراسلي المغناطيسي", time: "قبل 8 دقائق" },
+            { name: "مريم من سطيف", offer: "عرض قلادة + براسلي (توصيل مجاني)", time: "قبل 3 دقائق" }
+        ];
+
+        function startSocialProofTimer() {
+            let index = 0;
+            const toast = document.getElementById("toastNotif");
+            
+            setInterval(() => {
+                const item = fakeToastData[index];
+                document.getElementById("toastUser").textContent = item.name;
+                document.getElementById("toastProd").textContent = "اشترت: " + item.offer;
+                document.getElementById("toastTime").textContent = item.time;
+
+                toast.classList.add("show");
+
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 4000);
+
+                index = (index + 1) % fakeToastData.length;
+            }, 10000);
+        }
     </script>
 </body>
 </html>
