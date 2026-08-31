@@ -105,18 +105,19 @@
             100% { box-shadow: 0 0 0 0 rgba(255, 42, 95, 0); }
         }
 
-        /* Live Toast Notification Popup */
+        /* Live Toast Notification Popup FROM TOP */
         .toast-popup {
             position: fixed;
-            top: 20px;
-            right: -400px;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 92%;
             max-width: 380px;
             z-index: 100;
-            transition: right 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: top 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .toast-popup.show {
-            right: 20px;
+            top: 20px;
         }
 
         /* Offers Grid / Scrollable Container for Mobile */
@@ -216,7 +217,7 @@
     <div class="ambient-light-1"></div>
     <div class="ambient-light-2"></div>
 
-    <!-- Live Social Proof Toast -->
+    <!-- Live Social Proof Toast (من الأعلى) -->
     <div id="toastNotif" class="toast-popup">
         <div class="glass-card p-3.5 rounded-2xl flex items-center gap-3 border border-roseGold/30 shadow-2xl">
             <div class="w-10 h-10 rounded-full bg-roseGold/20 flex items-center justify-center text-roseGold text-lg shrink-0 border border-roseGold/40">
@@ -249,7 +250,7 @@
             </p>
         </header>
 
-        <!-- GALLERY GRID -->
+        <!-- GALLERY GRID (مع أسماء الصور الخاصة بك) -->
         <section class="mb-12">
             <div class="flex items-center justify-between mb-4">
                 <h2 class="text-base font-bold text-white font-cairo">معرض الصور الحقيقية للمنتج 📸</h2>
@@ -258,30 +259,22 @@
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                 <div class="glass-card p-1.5 rounded-2xl relative group">
-                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" 
-                         alt="قلادة الكوبل 1" 
-                         class="w-full h-44 md:h-60 object-cover rounded-xl">
+                    <img src="NECKLACE 1.jpeg" alt="قلادة الكوبل 1" class="w-full h-44 md:h-60 object-cover rounded-xl" onError="this.src='https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80'">
                     <span class="absolute bottom-3 right-3 bg-darkBg/80 backdrop-blur-sm text-[10px] text-white px-2 py-0.5 rounded-md border border-white/10 font-bold">قلادة الكوبل (1)</span>
                 </div>
 
                 <div class="glass-card p-1.5 rounded-2xl relative group">
-                    <img src="https://images.unsplash.com/photo-1611591475143-be232935f451?auto=format&fit=crop&w=600&q=80" 
-                         alt="قلادة الكوبل 2" 
-                         class="w-full h-44 md:h-60 object-cover rounded-xl">
+                    <img src="NECKLACE 2.jpg" alt="قلادة الكوبل 2" class="w-full h-44 md:h-60 object-cover rounded-xl" onError="this.src='https://images.unsplash.com/photo-1611591475143-be232935f451?auto=format&fit=crop&w=600&q=80'">
                     <span class="absolute bottom-3 right-3 bg-darkBg/80 backdrop-blur-sm text-[10px] text-white px-2 py-0.5 rounded-md border border-white/10 font-bold">قلادة الكوبل (2)</span>
                 </div>
 
                 <div class="glass-card p-1.5 rounded-2xl relative group">
-                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" 
-                         alt="براسلي الكوبل 1" 
-                         class="w-full h-44 md:h-60 object-cover rounded-xl">
+                    <img src="BR1.jpeg" alt="براسلي الكوبل 1" class="w-full h-44 md:h-60 object-cover rounded-xl" onError="this.src='https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80'">
                     <span class="absolute bottom-3 right-3 bg-darkBg/80 backdrop-blur-sm text-[10px] text-white px-2 py-0.5 rounded-md border border-white/10 font-bold">براسلي الكوبل (1)</span>
                 </div>
 
                 <div class="glass-card p-1.5 rounded-2xl relative group">
-                    <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=600&q=80" 
-                         alt="براسلي الكوبل 2" 
-                         class="w-full h-44 md:h-60 object-cover rounded-xl">
+                    <img src="BR2.jpeg" alt="براسلي الكوبل 2" class="w-full h-44 md:h-60 object-cover rounded-xl" onError="this.src='https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=600&q=80'">
                     <span class="absolute bottom-3 right-3 bg-darkBg/80 backdrop-blur-sm text-[10px] text-white px-2 py-0.5 rounded-md border border-white/10 font-bold">براسلي الكوبل (2)</span>
                 </div>
             </div>
@@ -306,7 +299,7 @@
                         </div>
 
                         <div class="w-full h-28 rounded-2xl overflow-hidden mb-3 border border-white/10 relative">
-                            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" alt="صورة القلادة" class="w-full h-full object-cover">
+                            <img src="NECKLACE 2.jpg" alt="صورة القلادة" class="w-full h-full object-cover" onError="this.src='https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80'">
                             <div class="absolute bottom-1.5 right-1.5 bg-darkBg/80 px-2 py-0.5 rounded text-[9px] text-white font-bold">صورة القلادة</div>
                         </div>
 
@@ -338,7 +331,7 @@
                         </div>
 
                         <div class="w-full h-28 rounded-2xl overflow-hidden mb-3 border border-white/10 relative">
-                            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" alt="صورة البراسلي" class="w-full h-full object-cover">
+                            <img src="BR1.jpeg" alt="صورة البراسلي" class="w-full h-full object-cover" onError="this.src='https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80'">
                             <div class="absolute bottom-1.5 right-1.5 bg-darkBg/80 px-2 py-0.5 rounded text-[9px] text-white font-bold">صورة البراسلي</div>
                         </div>
 
@@ -376,7 +369,7 @@
 
                         <div class="grid grid-cols-5 items-center gap-1 mb-3">
                             <div class="col-span-2 h-24 rounded-xl overflow-hidden border border-white/10 relative">
-                                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" alt="قلادة" class="w-full h-full object-cover">
+                                <img src="NECKLACE 2.jpg" alt="قلادة" class="w-full h-full object-cover" onError="this.src='https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80'">
                                 <div class="absolute bottom-1 right-1 bg-darkBg/80 text-[8px] text-white px-1 rounded font-bold">قلادة</div>
                             </div>
 
@@ -385,7 +378,7 @@
                             </div>
 
                             <div class="col-span-2 h-24 rounded-xl overflow-hidden border border-white/10 relative">
-                                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" alt="براسلي" class="w-full h-full object-cover">
+                                <img src="BR1.jpeg" alt="براسلي" class="w-full h-full object-cover" onError="this.src='https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80'">
                                 <div class="absolute bottom-1 right-1 bg-darkBg/80 text-[8px] text-white px-1 rounded font-bold">براسلي</div>
                             </div>
                         </div>
@@ -441,7 +434,6 @@
                     <div>
                         <label class="block text-xs font-bold text-gray-300 mb-1.5">رقم هاتف ثانٍ (اختياري)</label>
                         <input type="tel" id="phone2" placeholder="05 / 06 / 07 XX XX XX" dir="ltr" class="w-full px-4 py-3 rounded-xl bg-darkBg/80 border border-white/10 text-white text-xs text-right focus:border-roseGold outline-none transition">
-                        <p id="phone2Error" class="text-[11px] text-luxuryRed font-bold mt-1 hidden-section">⚠️ رقم الهاتف الثاني غير صحيح</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -465,7 +457,7 @@
                                     <input type="radio" name="deliveryType" value="desk" class="accent-luxuryRed" checked onchange="calculateTotal()">
                                     <span class="text-white font-bold">المكتب (StopDesk)</span>
                                 </div>
-                                <span id="deskPriceText" class="text-emerald-400 font-bold">مجاناً</span>
+                                <span id="deskPriceText" class="text-roseGold font-bold">0 دج</span>
                             </label>
 
                             <label class="flex items-center justify-between p-3 rounded-xl bg-darkBg/50 border border-white/10 cursor-pointer text-xs">
@@ -473,7 +465,7 @@
                                     <input type="radio" name="deliveryType" value="home" class="accent-luxuryRed" onchange="calculateTotal()">
                                     <span class="text-white font-bold">باب المنزل</span>
                                 </div>
-                                <span id="homePriceText" class="text-emerald-400 font-bold">مجاناً</span>
+                                <span id="homePriceText" class="text-roseGold font-bold">0 دج</span>
                             </label>
                         </div>
                     </div>
@@ -488,18 +480,10 @@
                         <span id="finalTotalText" class="text-2xl font-black text-roseGold font-sans">4,500 دج</span>
                     </div>
 
-                    <div class="p-3.5 rounded-2xl bg-luxuryRed/10 border border-luxuryRed/30">
-                        <label class="flex items-start gap-2.5 cursor-pointer">
-                            <input type="checkbox" id="oathCheckbox" required class="mt-0.5 accent-luxuryRed w-4 h-4">
-                            <div class="text-[11px] text-gray-300 leading-relaxed">
-                                <p class="font-bold text-white mb-0.5">أقسم بالله العظيم أنني جاد في طلبي وسأستلم الطرد ✋</p>
-                            </div>
-                        </label>
-                    </div>
-
                     <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl btn-luxury-pulse text-white font-black text-base shadow-xl flex items-center justify-center gap-2">
                         <i class="fa-solid fa-paper-plane"></i>
-                        <span>تأكيد الطلب المباشر</span>
+                        <span id="btnText">تأكيد الطلب المباشر</span>
+                        <span id="btnLoader" class="spin-loader hidden-section"></span>
                     </button>
 
                 </form>
@@ -524,7 +508,7 @@
                     <canvas id="wheelCanvas" width="290" height="290" class="w-full h-full rounded-full shadow-2xl"></canvas>
                 </div>
 
-                <button id="spinBtn" class="w-full py-3.5 rounded-xl btn-luxury-pulse text-white font-black text-base shadow-xl flex items-center justify-center gap-2">
+                <button id="spinBtn" onclick="startSpinWheel()" class="w-full py-3.5 rounded-xl btn-luxury-pulse text-white font-black text-base shadow-xl flex items-center justify-center gap-2">
                     <i class="fa-solid fa-play"></i>
                     <span>تدوير العجلة الآن</span>
                 </button>
@@ -543,7 +527,7 @@
                     اضغط على الزر أدناه للتحويل المباشر إلى **الواتساب** لتأكيد الشحن اليوم:
                 </p>
 
-                <a href="#" id="whatsappBtn" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-base shadow-xl flex items-center justify-center gap-2 transition">
+                <a href="#" id="whatsappBtn" target="_blank" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-base shadow-xl flex items-center justify-center gap-2 transition">
                     <i class="fa-brands fa-whatsapp text-2xl"></i>
                     تأكيد الطلب والهدية عبر الواتساب
                 </a>
@@ -553,228 +537,265 @@
     </div>
 
     <script>
-        // CONFIGURATION
         const CONFIG = {
-            whatsappNumber: "213542121829", // رقم الواتساب الخاص بك
-            
-            // 👇 رابط Google Apps Script الفعال الخاص بك 👇
-            appScriptUrl: "https://script.google.com/macros/s/AKfycbwpTKuw4fiIpxZqDU6i981yKSH7JHOCKxLp19OUS1cRXZyevvWiGeEnC78ACBUfHk8/exec", 
-            
+            whatsappNumber: "213542121829",
+            appScriptUrl: "https://script.google.com/macros/s/AKfycbQHH6CSHjx_J4k7EMx4BcI2P8z5c2jIprlxnXSMhKcNTbMI0tmDCeJlU6ZedBcIp0/exec", 
             offers: {
-                necklace: { name: "عرض القلادة فقط", price: 2500, desk: 500, home: 700 },
-                bracelet: { name: "عرض البراسلي فقط", price: 2500, desk: 500, home: 700 },
-                bundle: { name: "عرض قلادة + براسلي (الباك الكامل)", price: 4500, desk: 0, home: 0 }
+                necklace: { name: "عرض القلادة فقط", price: 2500, desk: 500, home: 700, freeShipping: false },
+                bracelet: { name: "عرض البراسلي فقط", price: 2500, desk: 500, home: 700, freeShipping: false },
+                bundle: { name: "عرض قلادة + براسلي (الباك الكامل)", price: 4500, desk: 0, home: 0, freeShipping: true }
             }
         };
 
         let selectedOfferKey = "bundle";
+        let lastOrderDetails = {};
 
-        // 1. Populate Algerian 58 Wilayas
+        // 58 Algerian Wilayas
         const wilayas = [
-            "أدرار", "الشلف", "الأغواط", "أم البواقي", "باتنة", "بجاية", "بسكرة", "بشار", "البليدة", "البويرة",
-            "تمنراست", "تبسة", "تلمسان", "تيارت", "تيزي وزو", "الجزائر", "الجلفة", "جيجل", "سطيف", "سعيدة",
-            "سكيكدة", "سيدي بلعباس", "عنابة", "قالمة", "قسنطينة", "المدية", "مستغانم", "المسيلة", "معسكر", "ورقلة",
-            "وهران", "البيض", "إليزي", "برج بوعريريج", "بومرداس", "الطارف", "تندوف", "تيسمسيلت", "الوادي", "خنشلة",
-            "سوق أهراس", "تيبازة", "ميلة", "عين الدفلى", "النعامة", "عين تموشنت", "غرداية", "غليزان", "تيميمون", "برج باجي مختار",
-            "أولاد جلال", "بني عباس", "إن صالح", "إن قزام", "تقرت", "جانت", "المغير", "المنيعة"
+            "01 - أدرار", "02 - الشلف", "03 - الأغواط", "04 - أم البواقي", "05 - باتنة", 
+            "06 - بجاية", "07 - بسكرة", "08 - بشار", "09 - البليدة", "10 - البويرة", 
+            "11 - تمنراست", "12 - تبسة", "13 - تلمسان", "14 - تيارت", "15 - تيزي وزو", 
+            "16 - الجزائر العاصمة", "17 - الجلفة", "18 - جيجل", "19 - سطيف", "20 - سعيدة", 
+            "21 - سكيكدة", "22 - سيدي بلعباس", "23 - عنابة", "24 - قالمة", "25 - قسنطينة", 
+            "26 - المدية", "27 - مستغانم", "28 - المسيلة", "29 - معسكر", "30 - ورقلة", 
+            "31 - وهران", "32 - البيض", "33 - إليزي", "34 - برج بوعريريج", "35 - بومرداس", 
+            "36 - الطارف", "37 - تندوف", "38 - تسمسيلت", "39 - الوادي", "40 - خنشلة", 
+            "41 - سوق أهراس", "42 - تيبازة", "43 - ميلة", "44 - عين الدفلى", "45 - النعامة", 
+            "46 - عين تموشنت", "47 - غرداية", "48 - غليزان", "49 - التيميمون", "50 - برج باجي مختار", 
+            "51 - أولاد جلال", "52 - بني عباس", "53 - إن صالح", "54 - إن قزام", "55 - تقرت", 
+            "56 - المنيعة", "57 - المغير", "58 - المنيعة"
         ];
 
         const wilayaSelect = document.getElementById('wilaya');
-        wilayas.forEach((w, idx) => {
-            const opt = document.createElement('option');
-            opt.value = (idx + 1);
-            opt.textContent = `${idx + 1} - ${w}`;
+        wilayas.forEach(w => {
+            let opt = document.createElement('option');
+            opt.value = w;
+            opt.textContent = w;
             wilayaSelect.appendChild(opt);
         });
 
-        // 2. Offer Selection & Calculations
         function selectOffer(key) {
             selectedOfferKey = key;
-            ['necklace', 'bracelet', 'bundle'].forEach(k => {
-                const card = document.getElementById(`card-${k}`);
-                if (k === key) {
-                    card.classList.add('glow-card-red');
-                    card.classList.remove('glow-card-gold');
-                } else {
-                    card.classList.remove('glow-card-red');
-                    card.classList.add('glow-card-gold');
-                }
-            });
 
-            document.getElementById('displaySelectedOffer').textContent = CONFIG.offers[key].name;
+            document.getElementById('card-necklace').className = "offer-card-item glass-card glow-card-gold p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between";
+            document.getElementById('card-bracelet').className = "offer-card-item glass-card glow-card-gold p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between";
+            document.getElementById('card-bundle').className = "offer-card-item glass-card glow-card-gold p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between";
+
+            if (key === 'bundle') {
+                document.getElementById('card-bundle').className = "offer-card-item glass-card glow-card-red p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between relative bg-gradient-to-b from-luxuryRed/25 via-cardBg to-cardBg";
+            } else if (key === 'necklace') {
+                document.getElementById('card-necklace').className = "offer-card-item glass-card glow-card-red p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between relative bg-gradient-to-b from-luxuryRed/25 via-cardBg to-cardBg";
+            } else if (key === 'bracelet') {
+                document.getElementById('card-bracelet').className = "offer-card-item glass-card glow-card-red p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between relative bg-gradient-to-b from-luxuryRed/25 via-cardBg to-cardBg";
+            }
+
             calculateTotal();
-            document.getElementById('checkoutSection').scrollIntoView({ behavior: 'smooth' });
         }
 
         function calculateTotal() {
-            const offer = CONFIG.offers[selectedOfferKey];
+            const data = CONFIG.offers[selectedOfferKey];
             const deliveryType = document.querySelector('input[name="deliveryType"]:checked').value;
             
-            const deskCost = offer.desk;
-            const homeCost = offer.home;
-
-            document.getElementById('deskPriceText').textContent = deskCost === 0 ? "مجاناً" : `${deskCost} دج`;
-            document.getElementById('homePriceText').textContent = homeCost === 0 ? "مجاناً" : `${homeCost} دج`;
-
-            const finalDelivery = deliveryType === 'desk' ? deskCost : homeCost;
-            const finalTotal = offer.price + finalDelivery;
-
-            document.getElementById('finalTotalText').textContent = `${finalTotal.toLocaleString()} دج`;
-        }
-
-        calculateTotal();
-
-        // 3. Phone Validation
-        function isValidDZPhone(phone) {
-            const clean = phone.replace(/\s+/g, '');
-            const dzRegex = /^(05|06|07)[0-9]{8}$/;
-            return dzRegex.test(clean);
-        }
-
-        // 4. Form Submit
-        let clientData = {};
-
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const p1 = document.getElementById('phone1').value;
-            const p2 = document.getElementById('phone2').value;
-            const p1Err = document.getElementById('phone1Error');
-            const p2Err = document.getElementById('phone2Error');
-
-            let isValid = true;
-            if (!isValidDZPhone(p1)) { p1Err.classList.remove('hidden-section'); isValid = false; } else { p1Err.classList.add('hidden-section'); }
-            if (p2.trim() !== "" && !isValidDZPhone(p2)) { p2Err.classList.remove('hidden-section'); isValid = false; } else { p2Err.classList.add('hidden-section'); }
-
-            if (!isValid) return;
-
-            const btn = document.getElementById('submitBtn');
-            btn.innerHTML = '<span class="spin-loader"></span> جاري تأكيد الطلب...';
-            btn.disabled = true;
-
-            const wilayaText = wilayaSelect.options[wilayaSelect.selectedIndex].text;
-            const deliveryType = document.querySelector('input[name="deliveryType"]:checked').value === 'desk' ? 'StopDesk' : 'À domicile';
-            const totalVal = document.getElementById('finalTotalText').textContent;
-
-            clientData = {
-                name: document.getElementById('fullName').value,
-                phone1: p1,
-                phone2: p2 || '-',
-                wilaya: wilayaText,
-                commune: document.getElementById('commune').value,
-                delivery: deliveryType,
-                product: CONFIG.offers[selectedOfferKey].name,
-                total: totalVal,
-                notes: document.getElementById('notes').value || '-',
-                source: 'jewelry'
-            };
-
-            const fd = new FormData();
-            Object.keys(clientData).forEach(k => fd.append(k, clientData[k]));
-            fd.append('date', new Date().toLocaleString());
-
-            if (typeof fbq === 'function') {
-                fbq('track', 'Purchase', {
-                    value: CONFIG.offers[selectedOfferKey].price,
-                    currency: 'DZD',
-                    content_name: clientData.product
-                });
+            let shippingFee = 0;
+            if (!data.freeShipping) {
+                shippingFee = (deliveryType === 'home') ? data.home : data.desk;
             }
 
-            // إرسال البيانات لـ Google Sheet
-            fetch(CONFIG.appScriptUrl, { method: 'POST', mode: 'no-cors', body: fd })
-            .then(() => showThankYou())
-            .catch(() => showThankYou());
-        });
+            const total = data.price + shippingFee;
 
-        function showThankYou() {
-            document.getElementById('mainContent').classList.add('hidden-section');
-            document.getElementById('thankYouPage').classList.remove('hidden-section');
-            window.scrollTo(0, 0);
-            drawWheel();
+            document.getElementById('deskPriceText').textContent = data.freeShipping ? "مجاني (0 دج)" : `${data.desk} دج`;
+            document.getElementById('homePriceText').textContent = data.freeShipping ? "مجاني (0 دج)" : `${data.home} دج`;
+
+            document.getElementById('displaySelectedOffer').textContent = `${data.name} (${data.price.toLocaleString()} دج - ${data.freeShipping ? 'توصيل مجاني' : 'توصيل عادي'})`;
+            document.getElementById('finalTotalText').textContent = `${total.toLocaleString()} دج`;
         }
 
-        // Spin Wheel JS
-        const canvas = document.getElementById('wheelCanvas');
-        const ctx = canvas ? canvas.getContext('2d') : null;
-        const wheelSlices = [
-            { label: "خصم 100%", color: "#0c0f18", textColor: "#ffffff" },
-            { label: "علبة هدايا 🎁", color: "#ff2a5f", textColor: "#ffffff" },
-            { label: "خصم 50%", color: "#0c0f18", textColor: "#ffffff" },
-            { label: "10,000 دج", color: "#e0a96d", textColor: "#000000" },
-            { label: "عطر مجاني", color: "#0c0f18", textColor: "#ffffff" },
-            { label: "خصم 20%", color: "#ff2a5f", textColor: "#ffffff" }
-        ];
+        function isValidDzPhone(phone) {
+            const regex = /^(05|06|07)[0-9]{8}$/;
+            return regex.test(phone.trim());
+        }
 
-        let currentAngle = 0;
+        document.getElementById('orderForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
 
-        function drawWheel() {
-            if (!ctx) return;
-            const sliceAngle = (2 * Math.PI) / wheelSlices.length;
-            const centerX = canvas.width / 2;
-            const centerY = canvas.height / 2;
-            const radius = centerX - 10;
+            const fullName = document.getElementById('fullName').value.trim();
+            const phone1 = document.getElementById('phone1').value.trim();
+            const phone2 = document.getElementById('phone2').value.trim();
+            const wilaya = document.getElementById('wilaya').value;
+            const commune = document.getElementById('commune').value.trim();
+            const deliveryType = document.querySelector('input[name="deliveryType"]:checked').value === 'home' ? 'توصيل للمنزل' : 'توصيل للمكتب';
+            const notes = document.getElementById('notes').value.trim();
 
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const phoneErr = document.getElementById('phone1Error');
+            if (!isValidDzPhone(phone1)) {
+                phoneErr.classList.remove('hidden-section');
+                return;
+            } else {
+                phoneErr.classList.add('hidden-section');
+            }
 
-            wheelSlices.forEach((slice, i) => {
-                const angle = currentAngle + i * sliceAngle;
+            const btn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnLoader = document.getElementById('btnLoader');
+            btn.disabled = true;
+            btnText.textContent = "جاري الإرسال...";
+            btnLoader.classList.remove('hidden-section');
+
+            const offerInfo = CONFIG.offers[selectedOfferKey];
+            const finalTotalStr = document.getElementById('finalTotalText').textContent;
+            const numericValue = parseInt(finalTotalStr.replace(/[^0-9]/g, '')) || offerInfo.price;
+
+            lastOrderDetails = {
+                source: "jewelry",
+                name: fullName,
+                phone1: phone1,
+                phone2: phone2,
+                wilaya: wilaya,
+                commune: commune,
+                delivery: deliveryType,
+                product: offerInfo.name,
+                total: finalTotalStr,
+                notes: notes,
+                date: new Date().toLocaleString('fr-FR', { timeZone: 'Africa/Algiers' })
+            };
+
+            try {
+                await fetch(CONFIG.appScriptUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(lastOrderDetails)
+                });
+
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Purchase', { value: numericValue, currency: 'DZD', content_name: offerInfo.name });
+                }
+
+                document.getElementById('mainContent').classList.add('hidden-section');
+                document.getElementById('thankYouPage').classList.remove('hidden-section');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            } catch (error) {
+                alert("حدث خطأ في الإرسال، يرجى المحاولة ثانية.");
+            } finally {
+                btn.disabled = false;
+                btnText.textContent = "تأكيد الطلب المباشر";
+                btnLoader.classList.add('hidden-section');
+            }
+        });
+
+        // Wheel Logic
+        const slices = ["علبة هدايا فاخرة 🎁", "خصم 200 دج 💰", "توصيل مجاني ⚡", "سوار إضافي ✨", "عطر مصغر 🌹", "علبة هدايا فاخرة 🎁"];
+        const sliceColors = ["#ff2a5f", "#111522", "#e0a96d", "#111522", "#ff2a5f", "#111522"];
+        let isSpinning = false;
+
+        function initWheelCanvas() {
+            const canvas = document.getElementById("wheelCanvas");
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+            const width = canvas.width;
+            const center = width / 2;
+            const radius = center - 5;
+            const anglePerSlice = (2 * Math.PI) / slices.length;
+
+            ctx.clearRect(0, 0, width, width);
+
+            for (let i = 0; i < slices.length; i++) {
+                const startAngle = i * anglePerSlice;
+                const endAngle = startAngle + anglePerSlice;
+
                 ctx.beginPath();
-                ctx.moveTo(centerX, centerY);
-                ctx.arc(centerX, centerY, radius, angle, angle + sliceAngle);
+                ctx.moveTo(center, center);
+                ctx.arc(center, center, radius, startAngle, endAngle);
                 ctx.closePath();
-                ctx.fillStyle = slice.color;
+                ctx.fillStyle = sliceColors[i];
                 ctx.fill();
-                ctx.strokeStyle = '#e0a96d';
+                ctx.strokeStyle = "rgba(224, 169, 109, 0.4)";
+                ctx.lineWidth = 2;
                 ctx.stroke();
 
                 ctx.save();
-                ctx.translate(centerX, centerY);
-                ctx.rotate(angle + sliceAngle / 2);
+                ctx.translate(center, center);
+                ctx.rotate(startAngle + anglePerSlice / 2);
                 ctx.textAlign = "right";
-                ctx.fillStyle = slice.textColor;
-                ctx.font = "bold 13px 'Cairo', sans-serif";
-                ctx.fillText(slice.label, radius - 22, 5);
+                ctx.fillStyle = "#ffffff";
+                ctx.font = "bold 11px Cairo";
+                ctx.fillText(slices[i], radius - 15, 4);
                 ctx.restore();
-            });
-
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, 28, 0, 2 * Math.PI);
-            ctx.fillStyle = '#e0a96d';
-            ctx.fill();
+            }
         }
 
-        const spinBtn = document.getElementById('spinBtn');
-        let isSpinning = false;
-
-        spinBtn.addEventListener('click', () => {
+        function startSpinWheel() {
             if (isSpinning) return;
             isSpinning = true;
 
-            const targetIndex = 1;
-            const sliceAngle = (2 * Math.PI) / wheelSlices.length;
-            const targetRotation = (Math.PI * 2 * 7) + (1.5 * Math.PI - (targetIndex * sliceAngle + sliceAngle / 2));
-            const startTime = performance.now();
+            const btn = document.getElementById("spinBtn");
+            btn.disabled = true;
+            btn.innerHTML = `<span class="spin-loader"></span> <span>جاري التدوير...</span>`;
 
-            function animateWheel(now) {
-                const progress = Math.min((now - startTime) / 5000, 1);
-                currentAngle = (1 - Math.pow(1 - progress, 4)) * targetRotation;
-                drawWheel();
+            const canvas = document.getElementById("wheelCanvas");
+            let rotation = 0;
+            const targetRotation = 360 * 5 + 30;
+            const startTime = performance.now();
+            const duration = 4000;
+
+            function animateWheel(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                rotation = easeOut * targetRotation;
+
+                canvas.style.transform = `rotate(${rotation}deg)`;
 
                 if (progress < 1) {
                     requestAnimationFrame(animateWheel);
                 } else {
-                    if (typeof confetti === 'function') confetti({ particleCount: 100, spread: 80, origin: { y: 0.6 } });
+                    isSpinning = false;
+                    if (typeof confetti === 'function') {
+                        confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+                    }
                     setTimeout(() => {
-                        document.getElementById('wheelSection').classList.add('hidden-section');
-                        document.getElementById('resultSection').classList.remove('hidden-section');
-                        const waMsg = `سلام عليكم، أنا ${clientData.name}.\nطلب العرض: ${clientData.product}\nالمجموع: ${clientData.total}\n🎉 وربحت معاكم: علبة هدايا فاخرة مجانية!`;
-                        document.getElementById('whatsappBtn').href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(waMsg)}`;
+                        document.getElementById("wheelSection").classList.add("hidden-section");
+                        document.getElementById("resultSection").classList.remove("hidden-section");
+                        setupWhatsAppButton();
                     }, 800);
                 }
             }
             requestAnimationFrame(animateWheel);
-        });
+        }
+
+        function setupWhatsAppButton() {
+            const message = `مرحباً! قمت بطلب جديد لـ مجوهرات الكوبل 🎁:\n\n` +
+                `👤 *الاسم:* ${lastOrderDetails.name}\n` +
+                `📞 *الهاتف:* ${lastOrderDetails.phone1}\n` +
+                `📍 *الولاية:* ${lastOrderDetails.wilaya} (${lastOrderDetails.commune})\n` +
+                `📦 *العرض:* ${lastOrderDetails.product}\n` +
+                `🚚 *الاستلام:* ${lastOrderDetails.delivery}\n` +
+                `💰 *المجموع:* ${lastOrderDetails.total}\n` +
+                `🎁 *الهدية المكسوبة:* علبة هدايا فاخرة مجانية ✨`;
+
+            const encodedMsg = encodeURIComponent(message);
+            document.getElementById("whatsappBtn").href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedMsg}`;
+        }
+
+        // Live Toast Proof Notification (ينزل من الأعلى)
+        const names = ["مريم من قسنطينة", "ياسين من البليدة", "سارة من وهران", "حمزة من سطيف", "شيماء من عنابة", "أمير من تلمسان"];
+        let toastIdx = 0;
+        setInterval(() => {
+            const toast = document.getElementById('toastNotif');
+            document.getElementById('toastUser').textContent = names[toastIdx % names.length];
+            document.getElementById('toastTime').textContent = `قبل ${Math.floor(Math.random() * 4) + 1} دقائق`;
+            
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+
+            toastIdx++;
+        }, 11000);
+
+        calculateTotal();
+        initWheelCanvas();
     </script>
 </body>
 </html>
