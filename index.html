@@ -631,7 +631,7 @@
             return dzRegex.test(clean);
         }
 
-        // 4. Form Submit
+        // 4. Form Submit (REBUILT FOR FIXED GOOGLE SHEET INTEGRATION)
         let clientData = {};
 
         document.getElementById('orderForm').addEventListener('submit', function(e) {
@@ -665,13 +665,22 @@
                 delivery: deliveryType,
                 product: CONFIG.offers[selectedOfferKey].name,
                 total: totalVal,
-                notes: document.getElementById('notes').value || '-',
-                source: 'jewelry'
+                notes: document.getElementById('notes').value || '-'
             };
 
-            const fd = new FormData();
-            Object.keys(clientData).forEach(k => fd.append(k, clientData[k]));
-            fd.append('date', new Date().toLocaleString('fr-FR', { timeZone: 'Africa/Algiers' }));
+            // 🎯 تحويل البيانات لـ URLSearchParams لضمان قراءتها بدون تداخل في Google Sheet
+            const params = new URLSearchParams();
+            params.append('source', 'jewelry');
+            params.append('date', new Date().toLocaleString('fr-FR', { timeZone: 'Africa/Algiers' }));
+            params.append('name', clientData.name);
+            params.append('phone1', clientData.phone1);
+            params.append('phone2', clientData.phone2);
+            params.append('wilaya', clientData.wilaya);
+            params.append('commune', clientData.commune);
+            params.append('delivery', clientData.delivery);
+            params.append('product', clientData.product);
+            params.append('total', clientData.total);
+            params.append('notes', clientData.notes);
 
             if (typeof fbq === 'function') {
                 fbq('track', 'Purchase', {
@@ -681,8 +690,12 @@
                 });
             }
 
-            // إرسال البيانات لـ Google Sheet
-            fetch(CONFIG.appScriptUrl, { method: 'POST', mode: 'no-cors', body: fd })
+            // إرسال البيانات المجهزة إلى Google Sheet
+            fetch(CONFIG.appScriptUrl, { 
+                method: 'POST', 
+                mode: 'no-cors', 
+                body: params 
+            })
             .then(() => showThankYou())
             .catch(() => showThankYou());
         });
