@@ -41,7 +41,7 @@
     </script>
 
     <style>
-        /* FIX HORIZONTAL SCROLL & OVERFLOW ISSUES */
+        /* FIX HORIZONTAL OVERFLOW */
         html, body {
             width: 100%;
             max-width: 100vw;
@@ -61,7 +61,6 @@
             box-sizing: border-box;
         }
 
-        /* Ambient background container to prevent overflow drift */
         .ambient-wrapper {
             position: absolute;
             top: 0;
@@ -91,7 +90,6 @@
             left: -100px;
         }
 
-        /* Glassmorphism Cards */
         .glass-card {
             background: rgba(17, 21, 34, 0.85);
             backdrop-filter: blur(16px);
@@ -101,7 +99,6 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Neon Glow Effects */
         .glow-card-red {
             border: 2px solid #ff2a5f !important;
             box-shadow: 0 0 25px rgba(255, 42, 95, 0.4), inset 0 0 15px rgba(255, 42, 95, 0.15) !important;
@@ -112,7 +109,6 @@
             box-shadow: 0 0 15px rgba(224, 169, 109, 0.25) !important;
         }
 
-        /* Pulsing Luxury Button */
         .btn-luxury-pulse {
             background: linear-gradient(135deg, #ff2a5f 0%, #b81d43 100%);
             box-shadow: 0 8px 25px rgba(255, 42, 95, 0.5);
@@ -124,7 +120,6 @@
             100% { box-shadow: 0 0 0 0 rgba(255, 42, 95, 0); }
         }
 
-        /* Live Toast Notification Popup (Fixed Transform to Avoid Page Shift) */
         .toast-popup {
             position: fixed;
             bottom: 15px;
@@ -155,7 +150,6 @@
             }
         }
 
-        /* Offers Grid / Scroll Container for Mobile */
         .offers-scroll-container {
             display: flex;
             gap: 12px;
@@ -233,7 +227,7 @@
         }
     </style>
 
-    <!-- TRACKING PIXELS -->
+    <!-- META PIXEL TRACKING CODE -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -247,10 +241,19 @@
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=880279101448547&ev=PageView&noscript=1"/></noscript>
+
+    <!-- TIKTOK PIXEL TRACKING CODE -->
+    <script>
+    !function (w, d, t) {
+      w.TiktokPixelObject = t;var ttq = w[t] = w[t] || [];ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+      // ttq.load('YOUR_TIKTOK_PIXEL_ID');
+      // ttq.page();
+    }(window, document, 'ttq');
+    </script>
 </head>
 <body class="relative">
 
-    <!-- Ambient Ambient Glow Wrapper -->
+    <!-- Ambient Glow -->
     <div class="ambient-wrapper">
         <div class="ambient-light-1"></div>
         <div class="ambient-light-2"></div>
@@ -272,7 +275,7 @@
 
     <main id="mainContent" class="max-w-5xl mx-auto px-4 pt-6 pb-28 relative z-10">
         
-        <!-- Header & Storytelling -->
+        <!-- Header -->
         <header class="text-center mb-8">
             <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-card border-roseGold/30 text-roseGold text-xs font-bold mb-4">
                 <i class="fa-solid fa-heart-pulse text-luxuryRed"></i>
@@ -298,30 +301,19 @@
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                 <div class="glass-card p-1.5 rounded-2xl relative group">
-                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" 
-                         alt="قلادة الكوبل 1" 
-                         class="w-full h-44 md:h-60 object-cover rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" alt="قلادة الكوبل 1" class="w-full h-44 md:h-60 object-cover rounded-xl">
                     <span class="absolute bottom-3 right-3 bg-darkBg/80 backdrop-blur-sm text-[10px] text-white px-2 py-0.5 rounded-md border border-white/10 font-bold">قلادة الكوبل (1)</span>
                 </div>
-
                 <div class="glass-card p-1.5 rounded-2xl relative group">
-                    <img src="https://images.unsplash.com/photo-1611591475143-be232935f451?auto=format&fit=crop&w=600&q=80" 
-                         alt="قلادة الكوبل 2" 
-                         class="w-full h-44 md:h-60 object-cover rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1611591475143-be232935f451?auto=format&fit=crop&w=600&q=80" alt="قلادة الكوبل 2" class="w-full h-44 md:h-60 object-cover rounded-xl">
                     <span class="absolute bottom-3 right-3 bg-darkBg/80 backdrop-blur-sm text-[10px] text-white px-2 py-0.5 rounded-md border border-white/10 font-bold">قلادة الكوبل (2)</span>
                 </div>
-
                 <div class="glass-card p-1.5 rounded-2xl relative group">
-                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" 
-                         alt="براسلي الكوبل 1" 
-                         class="w-full h-44 md:h-60 object-cover rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" alt="براسلي الكوبل 1" class="w-full h-44 md:h-60 object-cover rounded-xl">
                     <span class="absolute bottom-3 right-3 bg-darkBg/80 backdrop-blur-sm text-[10px] text-white px-2 py-0.5 rounded-md border border-white/10 font-bold">براسلي الكوبل (1)</span>
                 </div>
-
                 <div class="glass-card p-1.5 rounded-2xl relative group">
-                    <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=600&q=80" 
-                         alt="براسلي الكوبل 2" 
-                         class="w-full h-44 md:h-60 object-cover rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=600&q=80" alt="براسلي الكوبل 2" class="w-full h-44 md:h-60 object-cover rounded-xl">
                     <span class="absolute bottom-3 right-3 bg-darkBg/80 backdrop-blur-sm text-[10px] text-white px-2 py-0.5 rounded-md border border-white/10 font-bold">براسلي الكوبل (2)</span>
                 </div>
             </div>
@@ -344,27 +336,22 @@
                             <span class="text-[10px] bg-white/10 text-gray-300 px-2.5 py-1 rounded-full font-bold">عرض 1</span>
                             <span class="text-[10px] bg-roseGold/20 text-roseGold font-bold px-2 py-0.5 rounded">تخفيض ممتاز</span>
                         </div>
-
                         <div class="w-full h-28 rounded-2xl overflow-hidden mb-3 border border-white/10 relative">
                             <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" alt="صورة القلادة" class="w-full h-full object-cover">
                             <div class="absolute bottom-1.5 right-1.5 bg-darkBg/80 px-2 py-0.5 rounded text-[9px] text-white font-bold">صورة القلادة</div>
                         </div>
-
                         <h3 class="text-lg font-bold text-white mb-1">عرض القلادة</h3>
                         <p class="text-xs text-gray-400 mb-3">قلادة الكوبل المغناطيسية (قطعتين)</p>
-                        
                         <div class="mb-4 bg-darkBg/60 p-2.5 rounded-2xl border border-white/5 text-center">
                             <span class="text-xs text-gray-500 line-through block mb-0.5">3,500 دج</span>
                             <span class="text-3xl font-black text-white font-sans">2,500</span> <span class="text-xs text-gray-400 font-bold">دج</span>
                         </div>
                     </div>
-
                     <div>
                         <div class="border-t border-white/10 pt-3 text-[11px] text-gray-300 space-y-1 mb-4 font-semibold">
                             <p class="flex justify-between"><span>توصيل للمكتب:</span> <span class="text-white font-bold">500 دج</span></p>
                             <p class="flex justify-between"><span>توصيل للبيت:</span> <span class="text-white font-bold">700 دج</span></p>
                         </div>
-
                         <button type="button" class="w-full py-2.5 rounded-xl border border-white/20 text-xs font-bold text-white hover:bg-white/10 transition">اختيار هذا العرض</button>
                     </div>
                 </div>
@@ -376,27 +363,22 @@
                             <span class="text-[10px] bg-white/10 text-gray-300 px-2.5 py-1 rounded-full font-bold">عرض 2</span>
                             <span class="text-[10px] bg-roseGold/20 text-roseGold font-bold px-2 py-0.5 rounded">تخفيض ممتاز</span>
                         </div>
-
                         <div class="w-full h-28 rounded-2xl overflow-hidden mb-3 border border-white/10 relative">
                             <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" alt="صورة البراسلي" class="w-full h-full object-cover">
                             <div class="absolute bottom-1.5 right-1.5 bg-darkBg/80 px-2 py-0.5 rounded text-[9px] text-white font-bold">صورة البراسلي</div>
                         </div>
-
                         <h3 class="text-lg font-bold text-white mb-1">عرض البراسلي</h3>
                         <p class="text-xs text-gray-400 mb-3">براسلي الكوبل المغناطيسي (قطعتين)</p>
-                        
                         <div class="mb-4 bg-darkBg/60 p-2.5 rounded-2xl border border-white/5 text-center">
                             <span class="text-xs text-gray-500 line-through block mb-0.5">3,500 دج</span>
                             <span class="text-3xl font-black text-white font-sans">2,500</span> <span class="text-xs text-gray-400 font-bold">دج</span>
                         </div>
                     </div>
-
                     <div>
                         <div class="border-t border-white/10 pt-3 text-[11px] text-gray-300 space-y-1 mb-4 font-semibold">
                             <p class="flex justify-between"><span>توصيل للمكتب:</span> <span class="text-white font-bold">500 دج</span></p>
                             <p class="flex justify-between"><span>توصيل للبيت:</span> <span class="text-white font-bold">700 دج</span></p>
                         </div>
-
                         <button type="button" class="w-full py-2.5 rounded-xl border border-white/20 text-xs font-bold text-white hover:bg-white/10 transition">اختيار هذا العرض</button>
                     </div>
                 </div>
@@ -404,45 +386,34 @@
                 <!-- CARD 3: BUNDLE (DEFAULT SELECTED) -->
                 <div id="card-bundle" onclick="selectOffer('bundle')" class="offer-card-item glass-card glow-card-red p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between relative bg-gradient-to-b from-luxuryRed/25 via-cardBg to-cardBg">
                     <div class="absolute -top-3.5 right-1/2 translate-x-1/2 bg-gradient-to-r from-luxuryRed to-roseGold text-white px-3 py-1 rounded-full text-[10px] font-black shadow-lg whitespace-nowrap flex items-center gap-1">
-                        <i class="fa-solid fa-crown text-amber-300"></i>
-                        العرض الأكثر طلباً (الأفضل قيمة)
+                        <i class="fa-solid fa-crown text-amber-300"></i> العرض الأكثر طلباً (الأفضل قيمة)
                     </div>
-
                     <div>
                         <div class="flex justify-between items-center mb-3 mt-1">
                             <span class="text-[10px] bg-luxuryRed/30 text-white font-bold px-2 py-0.5 rounded border border-luxuryRed/40">عرض 3 (الباك)</span>
                             <span class="text-[10px] bg-emerald-500/20 text-emerald-400 font-bold px-2 py-0.5 rounded">اقتصادي جداً</span>
                         </div>
-
                         <div class="grid grid-cols-5 items-center gap-1 mb-3">
                             <div class="col-span-2 h-24 rounded-xl overflow-hidden border border-white/10 relative">
                                 <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" alt="قلادة" class="w-full h-full object-cover">
                                 <div class="absolute bottom-1 right-1 bg-darkBg/80 text-[8px] text-white px-1 rounded font-bold">قلادة</div>
                             </div>
-
-                            <div class="col-span-1 text-center font-black text-roseGold text-2xl animate-pulse">
-                                +
-                            </div>
-
+                            <div class="col-span-1 text-center font-black text-roseGold text-2xl animate-pulse">+</div>
                             <div class="col-span-2 h-24 rounded-xl overflow-hidden border border-white/10 relative">
                                 <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" alt="براسلي" class="w-full h-full object-cover">
                                 <div class="absolute bottom-1 right-1 bg-darkBg/80 text-[8px] text-white px-1 rounded font-bold">براسلي</div>
                             </div>
                         </div>
-
                         <h3 class="text-lg font-black text-white mb-0.5 font-cairo">عرض قلادة + براسلي</h3>
                         <p class="text-xs text-roseGold font-semibold mb-3">المجموعة الكاملة (سنسلة + 2 براسلي)</p>
-                        
                         <div class="mb-3 bg-darkBg/80 p-2.5 rounded-2xl border border-luxuryRed/40 text-center">
                             <span class="text-xs text-gray-400 line-through block mb-0.5">7,000 دج</span>
                             <span class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-roseGold to-luxuryRed font-sans">4,500</span> <span class="text-sm text-white font-bold">دج</span>
                         </div>
-
                         <div class="bg-emerald-500/10 border border-emerald-500/30 p-2 rounded-xl text-center text-emerald-400 text-xs font-bold mb-3">
                             <i class="fa-solid fa-truck-fast ml-1"></i> التوصيل مجااااني (0 دج) للمكتب والبيت!
                         </div>
                     </div>
-
                     <div>
                         <button type="button" class="w-full py-3 rounded-xl btn-luxury-pulse text-white text-xs font-black shadow-lg">اختيار العرض الخيالي</button>
                     </div>
@@ -464,7 +435,7 @@
                     
                     <div class="bg-white/5 p-3.5 rounded-2xl border border-white/10 flex justify-between items-center text-xs">
                         <span class="text-gray-400">العرض المحدد حالياً:</span>
-                        <span id="displaySelectedOffer" class="font-bold text-roseGold font-cairo">عرض قلادة + براسلي (4,500 دج - توصيل باطل)</span>
+                        <span id="displaySelectedOffer" class="font-bold text-roseGold font-cairo">عرض قلادة + براسلي (4,500 دج - توصيل مجاني)</span>
                     </div>
 
                     <div>
@@ -475,7 +446,7 @@
                     <div>
                         <label class="block text-xs font-bold text-gray-300 mb-1.5">رقم الهاتف الأول <span class="text-luxuryRed">*</span></label>
                         <input type="tel" id="phone1" required placeholder="05 / 06 / 07 XX XX XX" dir="ltr" class="w-full px-4 py-3 rounded-xl bg-darkBg/80 border border-white/10 text-white text-xs text-right focus:border-roseGold outline-none transition">
-                        <p id="phone1Error" class="text-[11px] text-luxuryRed font-bold mt-1 hidden-section">⚠️ يرجى إدخال رقم هاتف جزائري صحيح يتكون من 10 أرقام ويبدأ بـ 05 أو 06 أو 07</p>
+                        <p id="phone1Error" class="text-[11px] text-luxuryRed font-bold mt-1 hidden-section">⚠️ يرجى إدخال رقم هاتف جزائري صحيح (10 أرقام ويبدأ بـ 05 أو 06 أو 07)</p>
                     </div>
 
                     <div>
@@ -497,49 +468,43 @@
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-2">طريقة الاستلام <span class="text-luxuryRed">*</span></label>
+                        <label class="block text-xs font-bold text-gray-300 mb-2">طريقة الاستلام والتوصيل <span class="text-luxuryRed">*</span></label>
                         <div class="grid grid-cols-2 gap-3">
-                            <label class="flex items-center justify-between p-3 rounded-xl bg-darkBg/50 border border-white/10 cursor-pointer text-xs">
-                                <div class="flex items-center gap-1.5">
-                                    <input type="radio" name="deliveryType" value="desk" class="accent-luxuryRed" checked onchange="calculateTotal()">
-                                    <span class="text-white font-bold">المكتب (StopDesk)</span>
+                            <label class="flex items-center justify-between p-3.5 rounded-xl bg-darkBg/50 border border-white/10 cursor-pointer text-xs hover:border-roseGold/50 transition">
+                                <div class="flex items-center gap-2">
+                                    <input type="radio" name="deliveryType" value="desk" checked onchange="updateTotal()" class="accent-luxuryRed">
+                                    <span class="font-bold text-white">توصيل للمكتب (Bureau)</span>
                                 </div>
-                                <span id="deskPriceText" class="text-emerald-400 font-bold">مجاناً</span>
+                                <span id="deskPriceTag" class="text-roseGold font-bold">0 دج</span>
                             </label>
-
-                            <label class="flex items-center justify-between p-3 rounded-xl bg-darkBg/50 border border-white/10 cursor-pointer text-xs">
-                                <div class="flex items-center gap-1.5">
-                                    <input type="radio" name="deliveryType" value="home" class="accent-luxuryRed" onchange="calculateTotal()">
-                                    <span class="text-white font-bold">باب المنزل</span>
+                            
+                            <label class="flex items-center justify-between p-3.5 rounded-xl bg-darkBg/50 border border-white/10 cursor-pointer text-xs hover:border-roseGold/50 transition">
+                                <div class="flex items-center gap-2">
+                                    <input type="radio" name="deliveryType" value="home" onchange="updateTotal()" class="accent-luxuryRed">
+                                    <span class="font-bold text-white">توصيل للمنزل (Domicile)</span>
                                 </div>
-                                <span id="homePriceText" class="text-emerald-400 font-bold">مجاناً</span>
+                                <span id="homePriceTag" class="text-roseGold font-bold">0 دج</span>
                             </label>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-1.5">ملاحظة للطلب (اختياري)</label>
-                        <textarea id="notes" rows="2" placeholder="أي معلومات تود إضافتها..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg/80 border border-white/10 text-white text-xs focus:border-roseGold outline-none transition"></textarea>
+                        <label class="block text-xs font-bold text-gray-300 mb-1.5">ملاحظات خاصة (اختياري)</label>
+                        <textarea id="notes" rows="2" placeholder="أي ملاحظة بخصوص التوصيل أو المقاس..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg/80 border border-white/10 text-white text-xs focus:border-roseGold outline-none transition"></textarea>
                     </div>
 
-                    <div class="bg-white/5 p-3.5 rounded-2xl border border-white/10 flex justify-between items-center">
-                        <span class="text-xs font-bold text-gray-300">المجموع الصافي للدفع عند الاستلام:</span>
-                        <span id="finalTotalText" class="text-2xl font-black text-roseGold font-sans">4,500 دج</span>
-                    </div>
+                    <div class="pt-2 border-t border-white/10">
+                        <div class="flex justify-between items-center mb-4 bg-darkBg/90 p-3.5 rounded-2xl border border-roseGold/40">
+                            <span class="text-xs font-bold text-gray-300">المبلغ الإجمالي المترتب للدفع عند الاستلام:</span>
+                            <span id="finalTotalDisplay" class="text-2xl font-black text-roseGold font-sans">4,500 دج</span>
+                        </div>
 
-                    <div class="p-3.5 rounded-2xl bg-luxuryRed/10 border border-luxuryRed/30">
-                        <label class="flex items-start gap-2.5 cursor-pointer">
-                            <input type="checkbox" id="oathCheckbox" required class="mt-0.5 accent-luxuryRed w-4 h-4 shrink-0">
-                            <div class="text-[11px] text-gray-300 leading-relaxed">
-                                <p class="font-bold text-white mb-0.5">أقسم بالله العظيم أنني جاد في طلبي وسأستلم الطرد ✋</p>
-                            </div>
-                        </label>
+                        <button type="submit" id="submitBtn" class="w-full py-4 rounded-2xl btn-luxury-pulse text-white text-sm font-black shadow-xl flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-check-circle text-base"></i>
+                            <span id="btnText">تأكيد الطلب الآن (الدفع عند الاستلام)</span>
+                            <span id="btnLoader" class="spin-loader hidden-section"></span>
+                        </button>
                     </div>
-
-                    <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl btn-luxury-pulse text-white font-black text-base shadow-xl flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        <span>تأكيد الطلب المباشر</span>
-                    </button>
 
                 </form>
             </div>
@@ -547,7 +512,7 @@
 
     </main>
 
-    <!-- THANK YOU PAGE & SPIN WHEEL -->
+    <!-- THANK YOU PAGE & SPIN WHEEL MODAL -->
     <div id="thankYouPage" class="hidden-section min-h-screen bg-darkBg flex items-center justify-center p-4 relative z-50">
         <div class="max-w-md w-full glass-card p-6 md:p-8 rounded-3xl border border-roseGold/30 text-center relative overflow-hidden shadow-2xl">
             
@@ -591,203 +556,179 @@
         </div>
     </div>
 
-    <!-- MAIN JAVASCRIPT LOGIC -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // CONFIGURATION
-        const CONFIG = {
-            whatsappNumber: "213542121829", // رقم الواتساب الخاص بك
-            
-            // 👇 رابط Google Apps Script الفعال الخاص بك 👇
-            appScriptUrl: "https://script.google.com/macros/s/AKfycbwpTKuw4fiIpxZqDU6i981yKSH7JHOCKxLp19OUS1cRXZyevvWiGeEnC78ACBUfHk8/exec", 
-            
-            offers: {
-                necklace: { name: "عرض القلادة (2500 دج)", price: 2500, deskDelivery: 500, homeDelivery: 700, freeDelivery: false },
-                bracelet: { name: "عرض البراسلي (2500 دج)", price: 2500, deskDelivery: 500, homeDelivery: 700, freeDelivery: false },
-                bundle:   { name: "عرض قلادة + براسلي (4500 دج - توصيل باطل)", price: 4500, deskDelivery: 0, homeDelivery: 0, freeDelivery: true }
-            }
-        };
+        // ⚠️ ضع رابط Google Apps Script الخاص بك هنا ⚠️
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwpTKuw4fiIpxZqDU6i981yKSH7JHOCKxLp19OUS1cRXZyevvWiGeEnC78ACBUfHk8/exec";
+        const WHATSAPP_NUMBER = "213542121829";
 
-        // ALGERIAN WILAYAS (58)
-        const WILAYAS = [
+        // 58 Algerian Wilayas
+        const wilayas = [
             "01 - أدرار", "02 - الشلف", "03 - الأغواط", "04 - أم البواقي", "05 - باتنة", 
             "06 - بجاية", "07 - بسكرة", "08 - بشار", "09 - البليدة", "10 - البويرة", 
             "11 - تمنراست", "12 - تبسة", "13 - تلمسان", "14 - تيارت", "15 - تيزي وزو", 
-            "16 - الجزائر", "17 - الجلفة", "18 - جيجل", "19 - سطيف", "20 - سعيدة", 
+            "16 - الجزائر العاصمة", "17 - الجلفة", "18 - جيجل", "19 - سطيف", "20 - سعيدة", 
             "21 - سكيكدة", "22 - سيدي بلعباس", "23 - عنابة", "24 - قالمة", "25 - قسنطينة", 
             "26 - المدية", "27 - مستغانم", "28 - المسيلة", "29 - معسكر", "30 - ورقلة", 
             "31 - وهران", "32 - البيض", "33 - إليزي", "34 - برج بوعريريج", "35 - بومرداس", 
             "36 - الطارف", "37 - تندوف", "38 - تسمسيلت", "39 - الوادي", "40 - خنشلة", 
             "41 - سوق أهراس", "42 - تيبازة", "43 - ميلة", "44 - عين الدفلى", "45 - النعامة", 
-            "46 - عين تموشنت", "47 - غرداية", "48 - غليزان", "49 - تيميمون", "50 - برج باجي مختار", 
+            "46 - عين تموشنت", "47 - غرداية", "48 - غليزان", "49 - التيميمون", "50 - برج باجي مختار", 
             "51 - أولاد جلال", "52 - بني عباس", "53 - إن صالح", "54 - إن قزام", "55 - تقرت", 
-            "56 - جانت", "57 - المغير", "58 - المنيعة"
+            "56 - المنيعة", "57 - المغير", "58 - المنيعة"
         ];
 
-        let selectedOffer = 'bundle';
-        let currentTotal = 4500;
-        let lastOrderData = {};
-
-        // INITIALIZE ON DOM READY
-        document.addEventListener("DOMContentLoaded", function () {
-            populateWilayas();
-            selectOffer('bundle');
-            initWheelCanvas();
-            startSocialProofTimer();
+        // Populate Wilayas
+        const wilayaSelect = document.getElementById('wilaya');
+        wilayas.forEach(w => {
+            let opt = document.createElement('option');
+            opt.value = w;
+            opt.textContent = w;
+            wilayaSelect.appendChild(opt);
         });
 
-        // POPULATE WILAYA SELECT
-        function populateWilayas() {
-            const select = document.getElementById("wilaya");
-            WILAYAS.forEach(w => {
-                const opt = document.createElement("option");
-                opt.value = w;
-                opt.textContent = w;
-                select.appendChild(opt);
-            });
-        }
+        // Offers State
+        let currentOffer = 'bundle';
+        const offersData = {
+            necklace: { name: "عرض القلادة فقط", price: 2500, desk: 500, home: 700, freeShipping: false },
+            bracelet: { name: "عرض البراسلي فقط", price: 2500, desk: 500, home: 700, freeShipping: false },
+            bundle: { name: "عرض قلادة + براسلي (الباك الكامل)", price: 4500, desk: 0, home: 0, freeShipping: true }
+        };
 
-        // SELECT OFFER LOGIC
+        let lastOrderDetails = {};
+
         function selectOffer(offerKey) {
-            selectedOffer = offerKey;
-            
-            // Remove active classes
-            ['necklace', 'bracelet', 'bundle'].forEach(key => {
-                const card = document.getElementById(`card-${key}`);
-                if (card) {
-                    card.classList.remove('glow-card-red', 'glow-card-gold');
-                    if (key === 'bundle') {
-                        card.classList.add('glow-card-gold');
-                    }
-                }
-            });
+            currentOffer = offerKey;
 
-            // Set active glow
-            const activeCard = document.getElementById(`card-${offerKey}`);
-            if (activeCard) {
-                if (offerKey === 'bundle') {
-                    activeCard.classList.remove('glow-card-gold');
-                    activeCard.classList.add('glow-card-red');
-                } else {
-                    activeCard.classList.add('glow-card-gold');
-                }
+            document.getElementById('card-necklace').className = "offer-card-item glass-card glow-card-gold p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between";
+            document.getElementById('card-bracelet').className = "offer-card-item glass-card glow-card-gold p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between";
+            document.getElementById('card-bundle').className = "offer-card-item glass-card glow-card-gold p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between";
+
+            if (offerKey === 'bundle') {
+                document.getElementById('card-bundle').className = "offer-card-item glass-card glow-card-red p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between relative bg-gradient-to-b from-luxuryRed/25 via-cardBg to-cardBg";
+            } else if (offerKey === 'necklace') {
+                document.getElementById('card-necklace').className = "offer-card-item glass-card glow-card-red p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between relative bg-gradient-to-b from-luxuryRed/25 via-cardBg to-cardBg";
+            } else if (offerKey === 'bracelet') {
+                document.getElementById('card-bracelet').className = "offer-card-item glass-card glow-card-red p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between relative bg-gradient-to-b from-luxuryRed/25 via-cardBg to-cardBg";
             }
 
-            // Update Header Display Text
-            const displayEl = document.getElementById("displaySelectedOffer");
-            if (displayEl) {
-                displayEl.textContent = CONFIG.offers[offerKey].name;
-            }
-
-            calculateTotal();
+            updateTotal();
         }
 
-        // CALCULATE TOTAL & DELIVERY
-        function calculateTotal() {
-            const offer = CONFIG.offers[selectedOffer];
+        function updateTotal() {
+            const data = offersData[currentOffer];
             const deliveryType = document.querySelector('input[name="deliveryType"]:checked').value;
             
-            let deliveryFee = 0;
-            const deskPriceText = document.getElementById("deskPriceText");
-            const homePriceText = document.getElementById("homePriceText");
-
-            if (offer.freeDelivery) {
-                deliveryFee = 0;
-                deskPriceText.textContent = "مجاناً";
-                homePriceText.textContent = "مجاناً";
-            } else {
-                deskPriceText.textContent = "+ 500 دج";
-                homePriceText.textContent = "+ 700 دج";
-                deliveryFee = (deliveryType === 'desk') ? offer.deskDelivery : offer.homeDelivery;
+            let shippingFee = 0;
+            if (!data.freeShipping) {
+                shippingFee = (deliveryType === 'home') ? data.home : data.desk;
             }
 
-            currentTotal = offer.price + deliveryFee;
-            document.getElementById("finalTotalText").textContent = currentTotal.toLocaleString() + " دج";
+            const total = data.price + shippingFee;
+
+            document.getElementById('deskPriceTag').textContent = data.freeShipping ? "مجاني (0 دج)" : `${data.desk} دج`;
+            document.getElementById('homePriceTag').textContent = data.freeShipping ? "مجاني (0 دج)" : `${data.home} دج`;
+
+            document.getElementById('displaySelectedOffer').textContent = `${data.name} (${data.price.toLocaleString()} دج - ${data.freeShipping ? 'توصيل مجاني' : 'توصيل عادي'})`;
+            document.getElementById('finalTotalDisplay').textContent = `${total.toLocaleString()} دج`;
         }
 
-        // PHONE VALIDATION
-        function validatePhone(phone) {
-            const cleanPhone = phone.replace(/\s+/g, '').trim();
-            return /^(05|06|07)[0-9]{8}$/.test(cleanPhone);
+        updateTotal();
+        initWheelCanvas();
+
+        function isValidDzPhone(phone) {
+            const regex = /^(05|06|07)[0-9]{8}$/;
+            return regex.test(phone.trim());
         }
 
-        // FORM SUBMIT HANDLER
-        document.getElementById("orderForm").addEventListener("submit", function (e) {
+        // Form Submit
+        document.getElementById('orderForm').addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            const fullName = document.getElementById("fullName").value.trim();
-            const phone1 = document.getElementById("phone1").value.trim();
-            const phone2 = document.getElementById("phone2").value.trim();
-            const wilaya = document.getElementById("wilaya").value;
-            const commune = document.getElementById("commune").value.trim();
-            const deliveryType = document.querySelector('input[name="deliveryType"]:checked').value;
-            const notes = document.getElementById("notes").value.trim();
+            const fullName = document.getElementById('fullName').value.trim();
+            const phone1 = document.getElementById('phone1').value.trim();
+            const phone2 = document.getElementById('phone2').value.trim();
+            const wilaya = document.getElementById('wilaya').value;
+            const commune = document.getElementById('commune').value.trim();
+            const deliveryType = document.querySelector('input[name="deliveryType"]:checked').value === 'home' ? 'توصيل للمنزل' : 'توصيل للمكتب';
+            const notes = document.getElementById('notes').value.trim();
 
-            const phoneErr = document.getElementById("phone1Error");
-
-            if (!validatePhone(phone1)) {
-                phoneErr.classList.remove("hidden-section");
-                document.getElementById("phone1").focus();
+            const phoneErr = document.getElementById('phone1Error');
+            if (!isValidDzPhone(phone1)) {
+                phoneErr.classList.remove('hidden-section');
                 return;
             } else {
-                phoneErr.classList.add("hidden-section");
+                phoneErr.classList.add('hidden-section');
             }
 
-            // Show Loading State
-            const submitBtn = document.getElementById("submitBtn");
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = `<span class="spin-loader"></span> <span>جاري تسجيل الطلب...</span>`;
+            const btn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnLoader = document.getElementById('btnLoader');
+            btn.disabled = true;
+            btnText.textContent = "جاري إرسال الطلب...";
+            btnLoader.classList.remove('hidden-section');
 
-            // Prepare Payload
-            lastOrderData = {
-                fullName: fullName,
+            const selectedOfferData = offersData[currentOffer];
+            const finalTotalStr = document.getElementById('finalTotalDisplay').textContent;
+            const numericValue = parseInt(finalTotalStr.replace(/[^0-9]/g, '')) || selectedOfferData.price;
+
+            lastOrderDetails = {
+                source: "jewelry",
+                name: fullName,
                 phone1: phone1,
                 phone2: phone2,
                 wilaya: wilaya,
                 commune: commune,
-                deliveryType: deliveryType === 'desk' ? 'المكتب (StopDesk)' : 'باب المنزل',
-                selectedOffer: CONFIG.offers[selectedOffer].name,
-                totalPrice: currentTotal + " دج",
+                delivery: deliveryType,
+                product: selectedOfferData.name,
+                total: finalTotalStr,
                 notes: notes,
-                date: new Date().toLocaleString('ar-DZ')
+                date: new Date().toLocaleString('fr-FR', { timeZone: 'Africa/Algiers' })
             };
 
-            // Send Data to Google Apps Script
-            fetch(CONFIG.appScriptUrl, {
-                method: "POST",
-                mode: "no-cors",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(lastOrderData)
-            }).then(() => {
-                console.log("Order Sent Successfully");
-            }).catch(err => {
-                console.error("Error sending order:", err);
-            }).finally(() => {
-                // Track Purchase Pixel
-                if (typeof fbq === 'function') {
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(lastOrderDetails)
+                });
+
+                // TRACK META PIXEL
+                if (typeof fbq !== 'undefined') {
                     fbq('track', 'Purchase', {
-                        value: currentTotal,
-                        currency: 'DZD'
+                        value: numericValue,
+                        currency: 'DZD',
+                        content_name: selectedOfferData.name
                     });
                 }
 
-                // Hide Main Content & Show Thank You Page
-                document.getElementById("mainContent").classList.add("hidden-section");
-                document.getElementById("thankYouPage").classList.remove("hidden-section");
+                // TRACK TIKTOK PIXEL
+                if (typeof ttq !== 'undefined') {
+                    ttq.track('CompletePayment', {
+                        value: numericValue,
+                        currency: 'DZD',
+                        content_name: selectedOfferData.name
+                    });
+                }
+
+                // Show Spin Wheel
+                document.getElementById('mainContent').classList.add('hidden-section');
+                document.getElementById('thankYouPage').classList.remove('hidden-section');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+
+            } catch (error) {
+                alert("حدث خطأ أثناء إرسال الطلب، يرجى المحاولة مرة أخرى.");
+                console.error("Submission Error:", error);
+            } finally {
+                btn.disabled = false;
+                btnText.textContent = "تأكيد الطلب الآن (الدفع عند الاستلام)";
+                btnLoader.classList.add('hidden-section');
+            }
         });
 
-        /* -------------------------------------------------------------
-           SPIN WHEEL LOGIC
-        ------------------------------------------------------------- */
-        const slices = [
-            "علبة هدايا فاخرة 🎁",
-            "خصم 200 دج 💰",
-            "توصيل مجاني ⚡",
-            "سوار إضافي ✨",
-            "عطر مصغر 🌹",
-            "علبة هدايا فاخرة 🎁"
-        ];
+        /* SPIN WHEEL LOGIC */
+        const slices = ["علبة هدايا فاخرة 🎁", "خصم 200 دج 💰", "توصيل مجاني ⚡", "سوار إضافي ✨", "عطر مصغر 🌹", "علبة هدايا فاخرة 🎁"];
         const sliceColors = ["#ff2a5f", "#111522", "#e0a96d", "#111522", "#ff2a5f", "#111522"];
         let isSpinning = false;
 
@@ -816,14 +757,13 @@
                 ctx.lineWidth = 2;
                 ctx.stroke();
 
-                // Draw Text
                 ctx.save();
                 ctx.translate(center, center);
                 ctx.rotate(startAngle + anglePerSlice / 2);
                 ctx.textAlign = "right";
                 ctx.fillStyle = "#ffffff";
-                ctx.font = "bold 12px Cairo";
-                ctx.fillText(slices[i], radius - 20, 4);
+                ctx.font = "bold 11px Cairo";
+                ctx.fillText(slices[i], radius - 15, 4);
                 ctx.restore();
             }
         }
@@ -838,15 +778,13 @@
 
             const canvas = document.getElementById("wheelCanvas");
             let rotation = 0;
-            const targetRotation = 360 * 5 + 30; // Force stop on Luxury Gift Box slice
+            const targetRotation = 360 * 5 + 30;
             const startTime = performance.now();
             const duration = 4000;
 
             function animateWheel(currentTime) {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
-                
-                // Ease Out Cubic Formula
                 const easeOut = 1 - Math.pow(1 - progress, 3);
                 rotation = easeOut * targetRotation;
 
@@ -856,16 +794,9 @@
                     requestAnimationFrame(animateWheel);
                 } else {
                     isSpinning = false;
-                    // Trigger Confetti
                     if (typeof confetti === 'function') {
-                        confetti({
-                            particleCount: 120,
-                            spread: 80,
-                            origin: { y: 0.6 }
-                        });
+                        confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
                     }
-
-                    // Show Results
                     setTimeout(() => {
                         document.getElementById("wheelSection").classList.add("hidden-section");
                         document.getElementById("resultSection").classList.remove("hidden-section");
@@ -873,55 +804,38 @@
                     }, 800);
                 }
             }
-
             requestAnimationFrame(animateWheel);
         }
 
         function setupWhatsAppButton() {
-            const message = `مرحباً! قمت بطلب جديد من الموقع 🎁:\n\n` +
-                `👤 *الاسم:* ${lastOrderData.fullName}\n` +
-                `📞 *الهاتف:* ${lastOrderData.phone1}\n` +
-                `📍 *الولاية:* ${lastOrderData.wilaya} (${lastOrderData.commune})\n` +
-                `📦 *العرض:* ${lastOrderData.selectedOffer}\n` +
-                `🚚 *الاستلام:* ${lastOrderData.deliveryType}\n` +
-                `💰 *المجموع:* ${lastOrderData.totalPrice}\n` +
+            const message = `مرحباً! قمت بطلب جديد لـ مجوهرات الكوبل 🎁:\n\n` +
+                `👤 *الاسم:* ${lastOrderDetails.name}\n` +
+                `📞 *الهاتف:* ${lastOrderDetails.phone1}\n` +
+                `📍 *الولاية:* ${lastOrderDetails.wilaya} (${lastOrderDetails.commune})\n` +
+                `📦 *العرض:* ${lastOrderDetails.product}\n` +
+                `🚚 *الاستلام:* ${lastOrderDetails.delivery}\n` +
+                `💰 *المجموع:* ${lastOrderDetails.total}\n` +
                 `🎁 *الهدية المكسوبة:* علبة هدايا فاخرة مجانية ✨`;
 
             const encodedMsg = encodeURIComponent(message);
-            const waUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedMsg}`;
-            document.getElementById("whatsappBtn").href = waUrl;
+            document.getElementById("whatsappBtn").href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
         }
 
-        /* -------------------------------------------------------------
-           LIVE SOCIAL PROOF TOAST TIMER
-        ------------------------------------------------------------- */
-        const fakeToastData = [
-            { name: "إيمان من الجزائر العاصمة", offer: "عرض سنسلة + براسلي (توصيل مجاني)", time: "قبل دقيقتين" },
-            { name: "ياسين من وهران", offer: "عرض القلادة المغناطيسية", time: "قبل 5 دقائق" },
-            { name: "سارة من قسنطينة", offer: "عرض قلادة + براسلي (الباك الكامل)", time: "قبل دقيقة واحدة" },
-            { name: "أحمد من باتنة", offer: "عرض البراسلي المغناطيسي", time: "قبل 8 دقائق" },
-            { name: "مريم من سطيف", offer: "عرض قلادة + براسلي (توصيل مجاني)", time: "قبل 3 دقائق" }
-        ];
-
-        function startSocialProofTimer() {
-            let index = 0;
-            const toast = document.getElementById("toastNotif");
+        // Toast Social Proof
+        const names = ["مريم من قسنطينة", "ياسين من البليدة", "سارة من وهران", "حمزة من سطيف", "شيماء من عنابة", "أمير من تلمسان"];
+        let toastIdx = 0;
+        setInterval(() => {
+            const toast = document.getElementById('toastNotif');
+            document.getElementById('toastUser').textContent = names[toastIdx % names.length];
+            document.getElementById('toastTime').textContent = `قبل ${Math.floor(Math.random() * 4) + 1} دقائق`;
             
-            setInterval(() => {
-                const item = fakeToastData[index];
-                document.getElementById("toastUser").textContent = item.name;
-                document.getElementById("toastProd").textContent = "اشترت: " + item.offer;
-                document.getElementById("toastTime").textContent = item.time;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
 
-                toast.classList.add("show");
-
-                setTimeout(() => {
-                    toast.classList.remove("show");
-                }, 4000);
-
-                index = (index + 1) % fakeToastData.length;
-            }, 10000);
-        }
+            toastIdx++;
+        }, 11000);
     </script>
 </body>
 </html>
