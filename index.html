@@ -557,7 +557,7 @@
         const CONFIG = {
             whatsappNumber: "213542121829", // رقم الواتساب الخاص بك
             
-            // 👇 رابط Google Apps Script الخاص بك 👇
+            // 👇 رابط Google Apps Script الفعال الخاص بك 👇
             appScriptUrl: "https://script.google.com/macros/s/AKfycbwpTKuw4fiIpxZqDU6i981yKSH7JHOCKxLp19OUS1cRXZyevvWiGeEnC78ACBUfHk8/exec", 
             
             offers: {
@@ -631,7 +631,7 @@
             return dzRegex.test(clean);
         }
 
-        // 4. Form Submit (REBUILT FOR FIXED GOOGLE SHEET INTEGRATION)
+        // 4. Form Submit
         let clientData = {};
 
         document.getElementById('orderForm').addEventListener('submit', function(e) {
@@ -665,22 +665,13 @@
                 delivery: deliveryType,
                 product: CONFIG.offers[selectedOfferKey].name,
                 total: totalVal,
-                notes: document.getElementById('notes').value || '-'
+                notes: document.getElementById('notes').value || '-',
+                source: 'jewelry'
             };
 
-            // 🎯 تحويل البيانات لـ URLSearchParams لضمان قراءتها بدون تداخل في Google Sheet
-            const params = new URLSearchParams();
-            params.append('source', 'jewelry');
-            params.append('date', new Date().toLocaleString('fr-FR', { timeZone: 'Africa/Algiers' }));
-            params.append('name', clientData.name);
-            params.append('phone1', clientData.phone1);
-            params.append('phone2', clientData.phone2);
-            params.append('wilaya', clientData.wilaya);
-            params.append('commune', clientData.commune);
-            params.append('delivery', clientData.delivery);
-            params.append('product', clientData.product);
-            params.append('total', clientData.total);
-            params.append('notes', clientData.notes);
+            const fd = new FormData();
+            Object.keys(clientData).forEach(k => fd.append(k, clientData[k]));
+            fd.append('date', new Date().toLocaleString());
 
             if (typeof fbq === 'function') {
                 fbq('track', 'Purchase', {
@@ -690,12 +681,8 @@
                 });
             }
 
-            // إرسال البيانات المجهزة إلى Google Sheet
-            fetch(CONFIG.appScriptUrl, { 
-                method: 'POST', 
-                mode: 'no-cors', 
-                body: params 
-            })
+            // إرسال البيانات لـ Google Sheet
+            fetch(CONFIG.appScriptUrl, { method: 'POST', mode: 'no-cors', body: fd })
             .then(() => showThankYou())
             .catch(() => showThankYou());
         });
