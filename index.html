@@ -557,7 +557,7 @@
         const CONFIG = {
             whatsappNumber: "213542121829", // رقم الواتساب الخاص بك
             
-            // 👇 رابط Google Apps Script الفعال الخاص بك 👇
+            // 👇 رابط Google Apps Script الخاص بك 👇
             appScriptUrl: "https://script.google.com/macros/s/AKfycbwpTKuw4fiIpxZqDU6i981yKSH7JHOCKxLp19OUS1cRXZyevvWiGeEnC78ACBUfHk8/exec", 
             
             offers: {
@@ -671,7 +671,7 @@
 
             const fd = new FormData();
             Object.keys(clientData).forEach(k => fd.append(k, clientData[k]));
-            fd.append('date', new Date().toLocaleString());
+            fd.append('date', new Date().toLocaleString('fr-FR', { timeZone: 'Africa/Algiers' }));
 
             if (typeof fbq === 'function') {
                 fbq('track', 'Purchase', {
