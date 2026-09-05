@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>L'Amour Magnétique - مجوهرات الكوبل الفاخرة</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- Canvas Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <script>
@@ -201,6 +205,7 @@
         }
     </style>
 
+    <!-- TRACKING PIXELS -->
     <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -226,6 +231,7 @@
     <div class="ambient-light-1"></div>
     <div class="ambient-light-2"></div>
 
+    <!-- Live Social Proof Toast -->
     <div id="toastNotif" class="toast-popup">
         <div class="glass-card p-3.5 rounded-2xl flex items-center gap-3 border border-roseGold/30 shadow-2xl">
             <div class="w-10 h-10 rounded-full bg-roseGold/20 flex items-center justify-center text-roseGold text-lg shrink-0 border border-roseGold/40">
@@ -239,10 +245,11 @@
         </div>
     </div>
 
+    <!-- Sticky Mobile Floating CTA Button -->
     <div class="fixed bottom-0 left-0 right-0 p-3 bg-darkBg/95 backdrop-blur-md border-t border-white/10 z-50 md:hidden flex items-center justify-between gap-3">
         <div>
-            <span class="text-[10px] text-gray-400 block" id="mobileStickyTitle">عرض القلادة (850 دج - للقلادتين 1900 دج)</span>
-            <span class="text-base font-black text-roseGold font-sans" id="mobileStickyPrice">850 دج</span>
+            <span class="text-[10px] text-gray-400 block" id="mobileStickyTitle">عرض القلادة للكوبل (قطعتين)</span>
+            <span class="text-base font-black text-roseGold font-sans" id="mobileStickyPrice">1,900 دج</span>
             <span class="text-[10px] text-emerald-400 font-bold block"><i class="fa-solid fa-truck-fast"></i> توصيل سريع متوفر</span>
         </div>
         <a href="#offersSection" class="btn-luxury-pulse text-white px-5 py-2.5 rounded-xl font-black text-xs flex items-center gap-2">
@@ -251,8 +258,10 @@
         </a>
     </div>
 
+    <!-- MAIN LANDING PAGE CONTENT -->
     <main id="mainContent" class="max-w-5xl mx-auto px-4 pt-6 pb-28">
         
+        <!-- Header & Emotional Storytelling -->
         <header class="text-center mb-8">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card border-roseGold/30 text-roseGold text-xs font-bold mb-4">
                 <i class="fa-solid fa-heart-pulse text-luxuryRed"></i>
@@ -269,6 +278,7 @@
             </p>
         </header>
 
+        <!-- GALLERY GRID (2 Necklaces + 2 Bracelets) -->
         <section class="mb-12">
             <div class="flex items-center justify-between mb-4">
                 <h2 class="text-base font-bold text-white font-cairo">معرض الصور الحقيقية للمنتج 📸</h2>
@@ -295,6 +305,7 @@
             </div>
         </section>
 
+        <!-- STORYTELLING & EMOTIONAL IMPACT -->
         <section class="mb-14">
             <div class="glass-card p-6 md:p-8 rounded-3xl border border-roseGold/20 relative overflow-hidden text-center">
                 <span class="w-12 h-12 bg-luxuryRed/20 text-luxuryRed rounded-full flex items-center justify-center text-2xl mx-auto border border-luxuryRed/30 mb-3">
@@ -312,6 +323,7 @@
             </div>
         </section>
 
+        <!-- OFFERS CARDS WITH MINI PRODUCT IMAGES -->
         <section id="offersSection" class="mb-14">
             <div class="text-center mb-6">
                 <span class="text-xs uppercase tracking-widest text-roseGold font-bold">العروض الخاصة بالطلب اليوم</span>
@@ -321,6 +333,7 @@
 
             <div class="offers-scroll-container px-1">
                 
+                <!-- CARD 1 (NECKLACE - DEFAULT) -->
                 <div id="card-necklace" onclick="selectOffer('necklace')" class="offer-card-item glass-card glow-card-red p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -333,13 +346,13 @@
                             <div class="absolute bottom-1.5 right-1.5 bg-darkBg/80 px-2 py-0.5 rounded text-[9px] text-white font-bold">صورة القلادة</div>
                         </div>
 
-                        <h3 class="text-lg font-bold text-white mb-1">عرض القلادة</h3>
-                        <p class="text-[11px] text-gray-400 mb-3">قلادة واحدة: 850 دج / قلادتين: 1900 دج</p>
+                        <h3 class="text-lg font-bold text-white mb-1">عرض القلادة للكوبل</h3>
+                        <p class="text-[11px] text-gray-400 mb-2">قطعتين (2) قلادة مغناطيسية متصلة</p>
                         
-                        <div class="mb-4 bg-darkBg/60 p-2.5 rounded-2xl border border-white/5 text-center">
-                            <span class="text-xs text-gray-500 line-through block mb-0.5">1,500 دج</span>
-                            <span class="text-3xl font-black text-white font-sans">850</span> <span class="text-xs text-gray-400 font-bold">دج</span>
+                        <div class="mb-2 bg-darkBg/60 p-2.5 rounded-2xl border border-white/5 text-center">
+                            <span class="text-3xl font-black text-white font-sans">1,900</span> <span class="text-xs text-gray-400 font-bold">دج</span>
                         </div>
+                        <p class="text-[10px] text-roseGold text-center mb-3">* متوفرة بقطعة واحدة (850 دج) - أكتب في الملاحظات</p>
                     </div>
 
                     <div>
@@ -351,6 +364,7 @@
                     </div>
                 </div>
 
+                <!-- CARD 2 (BRACELET) -->
                 <div id="card-bracelet" onclick="selectOffer('bracelet')" class="offer-card-item glass-card glow-card-gold p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -362,13 +376,13 @@
                             <div class="absolute bottom-1.5 right-1.5 bg-darkBg/80 px-2 py-0.5 rounded text-[9px] text-white font-bold">صورة البراسلي</div>
                         </div>
 
-                        <h3 class="text-lg font-bold text-white mb-1">عرض البراسلي</h3>
-                        <p class="text-[11px] text-gray-400 mb-3">براسلي واحد: 850 دج / زوج براسلي: 1900 دج</p>
+                        <h3 class="text-lg font-bold text-white mb-1">عرض البراسلي للكوبل</h3>
+                        <p class="text-[11px] text-gray-400 mb-2">قطعتين (2) براسلي مغناطيسي متصل</p>
                         
-                        <div class="mb-4 bg-darkBg/60 p-2.5 rounded-2xl border border-white/5 text-center">
-                            <span class="text-xs text-gray-500 line-through block mb-0.5">1,500 دج</span>
-                            <span class="text-3xl font-black text-white font-sans">850</span> <span class="text-xs text-gray-400 font-bold">دج</span>
+                        <div class="mb-2 bg-darkBg/60 p-2.5 rounded-2xl border border-white/5 text-center">
+                            <span class="text-3xl font-black text-white font-sans">1,900</span> <span class="text-xs text-gray-400 font-bold">دج</span>
                         </div>
+                        <p class="text-[10px] text-roseGold text-center mb-3">* متوفر بقطعة واحدة (850 دج) - أكتب في الملاحظات</p>
                     </div>
 
                     <div>
@@ -380,6 +394,7 @@
                     </div>
                 </div>
 
+                <!-- CARD 3 (BUNDLE) -->
                 <div id="card-bundle" onclick="selectOffer('bundle')" class="offer-card-item glass-card glow-card-gold p-5 rounded-3xl cursor-pointer transition-all flex flex-col justify-between relative bg-gradient-to-b from-luxuryRed/25 via-cardBg to-cardBg">
                     <div class="absolute -top-3.5 right-1/2 translate-x-1/2 bg-gradient-to-r from-luxuryRed to-roseGold text-white px-3 py-1 rounded-full text-[10px] font-black shadow-lg whitespace-nowrap flex items-center gap-1">
                         <i class="fa-solid fa-crown text-amber-300"></i>
@@ -405,7 +420,7 @@
                         </div>
 
                         <h3 class="text-lg font-black text-white mb-0.5 font-cairo">عرض قلادة + براسلي</h3>
-                        <p class="text-xs text-roseGold font-semibold mb-3">المجموعة الكاملة (سنسلة + براسلي)</p>
+                        <p class="text-xs text-roseGold font-semibold mb-3">المجموعة الكاملة (2 سنسلة + 2 براسلي)</p>
                         
                         <div class="mb-3 bg-darkBg/80 p-2.5 rounded-2xl border border-luxuryRed/40 text-center">
                             <span class="text-xs text-gray-400 line-through block mb-0.5">5,500 دج</span>
@@ -425,6 +440,7 @@
             </div>
         </section>
 
+        <!-- HUMAN REAL REVIEWS -->
         <section class="mb-14">
             <h2 class="text-lg font-bold text-white font-cairo mb-6 text-center">انطباعات زبائننا بكل أمانة 💬</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -457,6 +473,7 @@
             </div>
         </section>
 
+        <!-- CHECKOUT FORM -->
         <section id="checkoutSection">
             <div class="glass-card p-5 md:p-8 rounded-3xl border border-roseGold/30 shadow-2xl relative">
                 
@@ -469,7 +486,7 @@
                     
                     <div class="bg-white/5 p-3.5 rounded-2xl border border-white/10 flex justify-between items-center text-xs">
                         <span class="text-gray-400">العرض المحدد حالياً:</span>
-                        <span id="displaySelectedOffer" class="font-bold text-roseGold font-cairo">عرض القلادة (850 دج - للقلادتين 1900 دج)</span>
+                        <span id="displaySelectedOffer" class="font-bold text-roseGold font-cairo">عرض القلادة للكوبل (قطعتين)</span>
                     </div>
 
                     <div>
@@ -524,13 +541,13 @@
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-1.5">ملاحظة للطلب (مثلا أريد قطعتين)</label>
+                        <label class="block text-xs font-bold text-gray-300 mb-1.5">ملاحظة للطلب (مثلا: أريد قطعة واحدة فقط 850 دج)</label>
                         <textarea id="notes" rows="2" placeholder="أي معلومات تود إضافتها..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg/80 border border-white/10 text-white text-xs focus:border-roseGold outline-none transition"></textarea>
                     </div>
 
                     <div class="bg-white/5 p-3.5 rounded-2xl border border-white/10 flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-300">المجموع الصافي للدفع عند الاستلام:</span>
-                        <span id="finalTotalText" class="text-2xl font-black text-roseGold font-sans">850 دج</span>
+                        <span id="finalTotalText" class="text-2xl font-black text-roseGold font-sans">1,900 دج</span>
                     </div>
 
                     <div class="p-3.5 rounded-2xl bg-luxuryRed/10 border border-luxuryRed/30">
@@ -554,6 +571,7 @@
 
     </main>
 
+    <!-- ULTRA ADVANCED SPIN TO WIN & THANK YOU PAGE -->
     <div id="thankYouPage" class="hidden-section min-h-screen bg-darkBg flex items-center justify-center p-4 relative z-50">
         
         <div class="max-w-md w-full glass-card p-6 md:p-8 rounded-3xl border border-roseGold/30 text-center relative overflow-hidden shadow-2xl">
@@ -604,9 +622,9 @@
             whatsappNumber: "213542121829", // ضع رقم الواتساب بدون +
             appScriptUrl: "https://script.google.com/macros/s/AKfycbzez5y_9dsOy3y0ONv4kqdiAz98o-l2mgsKFENxsZAqM-j1q5B4ASr7qrYflerEV3g/exec", // ضع رابط Google AppScript
             offers: {
-                necklace: { name: "عرض القلادة (850 دج - للقلادتين 1900 دج)", price: 850, desk: 600, home: 700 },
-                bracelet: { name: "عرض البراسلي (850 دج - للاثنين 1900 دج)", price: 850, desk: 600, home: 700 },
-                bundle: { name: "عرض قلادة + براسلي (الباك الكامل)", price: 3500, desk: 0, home: 0 }
+                necklace: { name: "عرض القلادة للكوبل (قطعتين)", price: 1900, desk: 600, home: 700 },
+                bracelet: { name: "عرض البراسلي للكوبل (قطعتين)", price: 1900, desk: 600, home: 700 },
+                bundle: { name: "عرض الباك الكامل (2 قلادة + 2 براسلي)", price: 3500, desk: 0, home: 0 }
             }
         };
 
@@ -650,7 +668,7 @@
             
             // Smart update for mobile sticky bar
             document.getElementById('mobileStickyTitle').textContent = CONFIG.offers[key].name;
-            document.getElementById('mobileStickyPrice').textContent = CONFIG.offers[key].price + ' دج';
+            document.getElementById('mobileStickyPrice').textContent = CONFIG.offers[key].price.toLocaleString() + ' دج';
 
             calculateTotal();
             
